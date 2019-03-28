@@ -1,0 +1,316 @@
+@import "../../app.wxss";
+@import "../outerFile/wxParse/wxParse.wxss";
+@import '../template/showDialog/showDialog.wxss';
+.top-swiper {
+  width: 100%;
+  height: 424rpx;
+  color: #323333;
+}
+
+.slide-image {
+  height: 424rpx;
+  width: 100%;
+}
+
+.course-info {
+  font-size: 30rpx;
+  padding: 0 20rpx 0 30rpx;
+}
+
+.course-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 12rpx 0 16rpx 0;
+}
+
+.course-top-left {
+  padding: 6rpx 0 16rpx 0;
+  max-width: 520rpx;
+}
+
+.course-top-right {
+  display: flex;
+  align-items: center;
+}
+
+.course-top-right-paybtn {
+  font-size: 28rpx;
+  padding: 13rpx 18rpx;
+  border: 1px solid #58a6f8;
+  color: #58a6f8;
+  border-radius: 54rpx;
+}
+
+.course-title {
+  padding: 10rpx 0;
+  color: #323333;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+  line-height: 44rpx;
+}
+
+.course-title-assistant {
+  /* font-size: 28rpx;
+  color: #666;
+  display: block;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp:2; 
+  text-overflow: ellipsis; */
+  font-size: 28rpx;
+  color: #666;
+  width:100%;
+  position:relative;
+  line-height:28rpx;
+  max-height:58rpx; 
+  overflow:hidden;
+}
+/* .course-title-assistant:after {
+    content:"...";
+    position:absolute;
+    bottom:0;
+    right:0;
+    background:#FFF;
+    padding-left:0.2rpx;
+} */
+/* .course-title-assistant-after {
+    content:"...";
+    position:absolute;
+    bottom:0;
+    right:0;
+    background:#FFF;
+    padding-left:0.2rpx;
+} */
+/* .course-title-assistant > .wxParse-p{
+  overflow: hidden;
+} */
+.course-title-assistant > .wxParse-p > .WxEmojiView {
+  line-height:30rpx;
+}
+.course-bottom {
+  border-top: 1px solid #f2f2f2;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #666;
+}
+
+.course-price {
+  color: #ff6700;
+}
+
+.course-oldprice {
+  color: #ddd;
+  text-decoration: line-through;
+}
+
+.course-enroll-count {
+  color: #ff8500;
+}
+
+.course-detail-title {
+  height: 78rpx;
+  background-color: #f2f2f2;
+  font-size: 30rpx;
+  line-height: 78rpx;
+  padding-left: 30rpx;
+  color: #323333;
+}
+
+.bottoms-btn {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 24rpx;
+  border-top: 1px solid #f2f2f2;
+}
+
+.course-buy-now {
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 100rpx;
+  padding: 0 38rpx;
+  color: #fff;
+  background-color: #ff8500;
+}
+.noBuy{
+  background-color: #d5d5d5;
+}
+.canBuy{
+  background-color: #ff8500;
+}
+.course-consult {
+  width: 112rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #f2f2f2;
+  color: #999;
+  position: relative;
+}
+
+.course-share {
+  width: 112rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #f2f2f2;
+  color: #999;
+  position: relative;
+}
+
+.consult-icon {
+  width: 44rpx;
+  height: 44rpx;
+  background-size: 1800rpx 900rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position: -1674rpx -88rpx;
+}
+
+.share-icon {
+  width: 44rpx;
+  height: 44rpx;
+  background-size: 1800rpx 900rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position: -761rpx -88rpx;
+  margin: 0 auto;
+}
+
+.course-share-btn {
+  border: none;
+  background: transparent;
+  font-size: 28rpx;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  line-height: 28rpx;
+  color: #999999;
+}
+.share-icon-content{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.course-contents {
+  padding-bottom: 100rpx;
+  overflow: hidden;
+}
+
+.play-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:rgba(0,0,0,0.3);
+}
+
+.paly-img {
+  width: 120rpx;
+  height: 120rpx;
+  background-size: 1800rpx 900rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position: -960rpx -160rpx;
+}
+
+.play-text {
+  font-size: 34rpx;
+  color: #fff;
+  margin-top: 20rpx;
+}
+.wxParse-p{
+  overflow: hidden;
+}
+.overflow-hidden{
+  height: calc(100%);
+  width: 100%;
+  overflow: hidden;
+}
+.mask_layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 998;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.mask_layer-content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal_box {
+  width: 580rpx;
+  overflow: hidden;
+  margin: 0 auto;
+  z-index: 1000;
+  background: #fafafa;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 32rpx 60rpx;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.modal_box-content {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_box-pic {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.modal_box-text {
+  font-size: 24rpx;
+  color: #d5d5d5;
+  margin-top: 12rpx;
+}
+.modal-box-line{
+  width: 1px;
+  height: 90rpx;
+  background: #d5d5d5;
+}
+.zixun-btn{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+}

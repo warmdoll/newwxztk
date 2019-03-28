@@ -1,0 +1,36 @@
+.center-box{
+  padding: 20rpx;
+}
+.subject-list{
+  font-size: 28rpx;
+  color: #333;
+  padding: 20rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.subject-item-rt{
+  width: 70%;
+}
+.goto-href.commonico::before{
+    width:30rpx;
+    height:50rpx;
+    background-position:-402rpx 12rpx;
+    background-size:2000rpx 600px;
+    vertical-align:middle;
+    top:-10rpx;
+    left:10rpx;
+}
+.goto-href.commonico{
+  display: flex;
+  align-items:center;
+  margin-top: 34rpx;
+}
+.subject-item-rt.commonico{
+  padding-left: 40rpx;
+  display: flex;
+  align-items:center;
+}
+.appli-ico{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 20px;
+}

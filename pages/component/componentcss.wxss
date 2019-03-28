@@ -1,0 +1,178 @@
+/* pages/component/myconponent.wxss */
+/*无限极 章节列表  */
+.over-circle{display:inline-block;overflow: hidden;text-overflow: ellipsis;    white-space: nowrap;vertical-align: middle;}
+.commonico{position: relative;}
+.commonico:after,.commonico:before{position: absolute;content:'';background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");background-repeat: no-repeat;background-size: 1500rpx 750rpx;}
+.clearfix:after{visibility:hidden;display:block; font-size:0; content:'\20'; clear:both; height:0;}
+.sharebtn-box{
+  margin:0;
+line-height:2;
+border:1px solid #fff;
+outline:none;
+padding:0;
+border-radius:50%;
+width:55rpx;
+right:0rpx;
+position:absolute;
+height:55rpx;
+float:right;
+top: 20rpx;
+}
+.ver-middle{position: absolute; bottom: 50%;left: 50%;transform: translate(-50%, -50%);}
+.nodata-box{
+  top:35%;
+  font-size: 40rpx;
+  color: #333;
+}
+.fontc3{
+  color: #333;
+}
+.tc{
+  text-align: center;
+}
+.no-data-box{
+  position: relative;
+}
+.img-class{
+  width: 370rpx;
+  height: 201rpx;
+  margin-bottom: 50rpx;
+}
+.fl{float:left;}
+.rt{float: right;}
+.fontc6{
+  color: #666;
+  font-size: 24rpx;
+}
+.fontc9{
+  color: #999;
+  font-size: 24rpx;
+}
+.fontc{
+  color: #666;
+}
+.fontc3{
+  color: #333;
+}
+.fontcbl{
+  color: #58a6f8;
+}
+.fonts24{font-size: 24rpx;}
+.fontsize28{font-size: 28rpx;}
+.list-ul .list-li .over-circle{
+  font-size:30rpx;
+  color: #333;
+
+}
+.list-ul>.list-li>.list-li_text {
+  color: #666;
+   font-size: 30rpx;
+}
+.list-ul>.list-li>.list-li_text,.width100{width: 100%;}
+.course-ico.commonico::before,
+.share-ico.commonico::before,
+.cart-ico.commonico::before,
+.practice-ico.commonico::before,
+.zuoti-ico.commonico::before,
+.now-paly.commonico::before{
+   width: 55rpx;
+   height: 55rpx;
+  vertical-align: middle;
+   top: 10rpx;
+   left: -60rpx;
+   background-size: 1800rpx 900rpx!important;
+}
+.course-ico.commonico::before{
+   background-position: -963rpx 5rpx;
+   left: -55rpx;
+   top:10rpx;
+   width: 55rpx;
+}
+.course-ico.now-play.commonico::before{
+   background-position:-1303rpx -194rpx;
+   left: -55rpx;
+   top:8rpx;
+   width: 55rpx;
+}
+.share-ico.commonico::before{
+   background-position: -1013rpx 7rpx;
+    left: -55rpx;
+    top: -2rpx;
+    height: 55rpx;
+}
+.cart-ico.commonico::before{
+   background-position: -1070rpx 5rpx;
+   left: -55rpx;
+}
+.practice-ico.commonico::before{
+   background-position: -850rpx 0rpx;
+    left: -55rpx;
+   width: 55rpx;
+}
+.zuoti-ico.commonico::before{
+    background-position:-1230rpx -70rpx;
+    left:-55rpx;
+    width:65rpx;
+    height:65rpx!important;
+    background-size:1800rpx 900rpx!important;
+    top:-8rpx;
+
+}
+.list-ul .list-li .iconfont{
+  color: #58a6f8;
+}
+.wrap{
+  position: absolute;
+  top: 0;
+}
+.pbuy-stu{margin-left: 30rpx;}
+.clist-li-title{width: 80%;}
+.clist-li-title .over-circle{width:80%;}
+.circle-box {
+  text-align: center;
+  position: relative;
+  width:100px;
+  height: 100px;
+}
+.chapter-progress{
+  padding: 30rpx 20rpx;
+}
+.circle {
+ position: absolute;
+
+  right: 0;
+  margin: auto;
+  top: 0;
+  z-index: 1;
+}
+
+.draw_btn {
+  width: 100rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.chapter-progress-lf{
+  height: 120rox;
+  width: 120rpx;
+  position: relative;
+}
+.chapter-rt-bt{
+  margin-top: 40rpx;
+}
+.chapter-rt-btitem:first-child{
+  border-right: 1px solid #e8e8e8;
+}
+.chapter-rt-btitem{
+  width: 250rpx;
+}
+.chapter-list-box{
+  padding: 30rpx;
+  
+}
+
+.clist-li-title{
+  width: 100%;
+}
+.common-flexrow{display: flex;flex-direction: row;}

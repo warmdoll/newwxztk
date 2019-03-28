@@ -1,0 +1,287 @@
+<import src="../../outerFile/wxParse/wxParse.wxml" />
+<!-- <view class='video-model' wx:if="{{showVideoModel}}" >
+  <view class="video-model-close" catchtap='hiddenVideoModel'>X</view>
+  <include src="../../BCLVideo/video.wxml"/>
+</view> -->
+<view class='bg-opa' wx:if="{{showVideoModel}}">
+  <view class="exam_list_box tc" style='padding:0;'>
+    <view class="video-model-close" catchtap='hiddenVideoModel'>X</view>
+    <view class='analysis-list-item fontc6'>
+      <include src="../../BCLVideo/video.wxml" />
+    </view>
+  </view>
+</view>
+
+<view id="screen-width" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" data-current="{{currentbigTab}}">
+  <block wx:if="{{swiperData.length>0}}">
+    <view class='flex-box box-pa flex-between tiku-top'>
+      <text class='fontsize28 fontc'>{{tiType}}（{{currentbigTab}}/{{totalTi}}）</text>
+      <block wx:if="{{isPaperExame}}">
+        <view class='remain-exame-time' bindtap='stopDati'>
+         {{timeEnd}}
+        </view>
+      </block>
+      <!-- <view class='fontcbl fontsize28 live-btn commonico'> 查看往期</view> -->
+    </view>
+    <!--题干-->
+    <!--tab标签切换内容 -->
+    <!--http://www.jb51.net/article/94936.htm  -->
+
+    <view current="{{currentbigTab}}" autoplay="{{autoplay}}" class="swiper-box" duration="300" bindchange="bindChange">
+      <view style='width:{{swiperOuterwidth}}px;margin-left:0px;' class='clearfix swiper-animate'>
+
+        <block wx:for="{{swiperData}}" wx:key="a" wx:for-item="item" wx:if="{{index==currentbigTab-1}}">
+
+          <view class='fl swiper-item ' style='width:{{swiperitemWidth}}px;' data-num="{{item.tiNum}}">
+            <view class='ti-box  box-pa'>
+              <view class='ti-title fontsize28'>
+
+                <!-- 题干转html -->
+                <template is="wxParse" data="{{wxParseData:replyTemArray1[item.tiNum-1]}}" />
+              </view>
+
+              <view class='ti-daan'>
+                <view class='ti-daan-list  fontsize28 flex-box {{iObj.isStatus?" act":""}}' wx:for="{{item.Options}}" data-exameid="{{iObj.ExamID}}" wx:key="a" data-name="{{iObj.Name}}" data-parentsid="{{iObj.QuestionID}}" data-id="{{iObj.ID}}" catchtap="selectedDaan"
+                  wx:for-item="iObj">
+                  <view class='daan-ico {{item.QuestionType==1?"single-options":"more-options"}} {{item.ansyShow&&iObj.IsRight==1?"rightico commonico":""}} {{item.ansyShow&&iObj.IsRight==0&&iObj.isStatus?"erroico commonico":""}}'>
+                    <text>{{iObj.Name}}</text>
+                  </view>
+                  <view class='fontc daan-content flex-item1'>
+                    <!-- 选项转html -->
+                    <!-- {{iObj.Content}}  -->
+                    <template is="wxParse" data="{{wxParseData:replyTemArray2[iObj.addindex]}}" />
+                  </view>
+                </view>
+              </view>
+            </view>
+            <!--解析-->
+            <block wx:if="{{item.ansyShow2}}">
+              <view class='analysis-box  box-pa fontc fonts24'>
+                <view class='analysis-list'>
+                  正确答案：{{item.rightDaan}}
+                  <text class='padd-left'>您的答案：<block wx:if="{{item.mySelected!='mm'}}">{{item.mySelected}}</block>
+            </text>
+                </view>
+                <view class='analysis-list clearfix'>
+                  <view class='fl'>重要等级：</view>
+                  <view class="star-box fl">
+                    <image src="http://static.wangxiao.cn/zhuntiku/img/epmtystar-3.png" alt="" class="star-img"></image>
+                    <view class="star" style="width: {{item.WrongRate*100}}px;"></view>
+                  </view>
+                </view>
+                <!-- <view class='analysis-list'>
+            个人统计：做答{{item.oldid}}次，做错{{item.WrongCount}}次
+          </view> -->
+                <view class='analysis-list'>
+                  全站统计：本题共被作答{{item.TestCount}}次，正确率{{item.erroRate}}%，易错选项{{erroMoreNumber}}
+                </view>
+
+              </view>
+
+              <!-- tab标签切换 -->
+              <view class='change-btn clearfix'>
+                <view class=' change-btn-rt tc {{showvideoAnsylist?"act":""}} fl' wx:if="{{item.VideoUnique!=''&&item.UserUnique!=''}}" catchtap="swichNav" data-current="1" data-uu="{{item.UserUnique}}" data-vu="{{item.VideoUnique}}">视频解析</view>
+                <view class='change-btn-lf {{showfontAnsylist?"act":""}} tc fl' wx:if="{{item.TextAnalysis!=''}}" catchtap="swichNav" data-current="0">文字解析</view>
+              </view>
+
+              <view class='box-pa'>
+                <view class='analysis-list'>
+                  <block wx:if="{{item.TextAnalysis!=''&&showfontAnsylist}}">
+                    <view class='analysis-list-item fontc6'>
+                      <!-- 解析转html -->
+                      <template is="wxParse" data="{{wxParseData:replyTemArray[item.tiNum-1]}}" />
+                    </view>
+                  </block>
+                  <!-- <block wx:if="{{item.VideoUnique!=''&&item.UserUnique!=''&&showvideoAnsylist}}">
+                   <view class='analysis-list-item fontc6'>
+                    <block wx:if="{{showvideoAnsylist}}">
+                    <include src="../../BCLVideo/video.wxml"/>
+                    </block>
+                    </view> 
+               </block> -->
+
+                  <view class='flex-box flex-between'>
+                    <view class='fontcbl note-box commonico'> 笔记</view>
+                    <view class='commonico note-box add-do-note' bindtap='doNotefn' data-tiid="{{item.ID}}" data-status="do">记一笔</view>
+                  </view>
+
+
+                </view>
+                <!--自己笔记来源-->
+                <block wx:for="{{myNotelist}}" wx:if="{{myNotelist.length>0}}" wx:key="a">
+                  <view class='analysis-list'>
+                    <view class='flex-box flex-between live-list-bottom'>
+                      <text class=' fontc6'>来源：{{item.username}}</text>
+                      <view class='commonico live-time fontc6'>{{item.ViewTime}}</view>
+                    </view>
+                    <view class='users-analysis-item fontc6'>
+                      {{item.content}}
+                    </view>
+                    <view class='flex-box flex-top live-list-bottom'>
+                      <view class=' fontc6 clearfix'>
+                      </view>
+                      <view class='commonico live-time fontc6 clearfix fl-note'>
+                        <view class='fl redo-note' catchtap='doNotefn' data-status="re-do" data-content="{{item.content}}" data-id="{{item.ID}}">修改</view>
+                        <view class='fl deleat-note' catchtap='deleatNotefn' data-id="{{item.ID}}">删除</view>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+                <!--别人笔记 -->
+                <block wx:for="{{otherNotelist}}" wx:if="{{otherNotelist.length>0}}" wx:key="a">
+                  <view class='analysis-list'>
+                    <view class='flex-box flex-between live-list-bottom'>
+                      <text class=' fontc6'>来源：{{item.username}}</text>
+                      <view class='commonico live-time fontc6'>{{item.ViewTime}}</view>
+                    </view>
+                    <view class='users-analysis-item fontc6'>
+                      {{item.content}}
+                    </view>
+                    <view class='flex-box flex-top live-list-bottom'>
+                      <view class=' fontc6 clearfix'>
+                        <!-- <view class='fl clearfix' data-action="{{item.zanSatatus}}" data-person="all" data-approvestatus="1" data-id="{{item.ID}}" bindtap='proveFn'>
+                      <view class='zan-top commoico-box fl'></view>
+                      <view class='fl zan-num'>{{item.ApproveCount}}</view>
+                    </view>
+                    <view class='fl clearfix'  data-action="{{item.caiSatatus}}" data-person="all" data-approvestatus="0" data-id="{{item.ID}}" bindtap='proveFn'>
+                      <view class='zan-down commoico-box fl'></view>
+                      <view class=' fl zan-num'>{{item.NoApproveCount}}</view>
+                    </view> -->
+                      </view>
+                    </view>
+                  </view>
+                </block>
+
+              </view>
+            </block>
+          </view>
+
+        </block>
+      </view>
+    </view>
+
+    <!--底部  -->
+    <block wx:if="{{!tifooter}}">
+      <view class='footer'>
+        <view class='common-bgwhite  fontc6'>
+          <view class='flex-box my-top-box common-flexrow'>
+            <view class='module-list flex-item1 tc' catchtap='showOptionpage'>
+              <view class=' module-list-options commoico-box'></view>
+              <view class='my-module-text'>答题卡</view>
+            </view>
+            <view class='module-list flex-item1 tc' data-num="{{currentbigTab}}" bindtap='showAny'>
+              <view class=' module-list-daan commoico-box'></view>
+              <view class='my-module-text'>查看答案</view>
+            </view>
+
+            <!-- <view class='module-list flex-item1 tc' bindtap='sharefn'>
+            <button class="tiku-share" open-type="share">
+              <view class=' module-list-share commoico-box'></view>
+              <view class='my-module-text'>分享</view>
+            </button>
+          </view> -->
+
+            <!-- <block wx:else>    <block wx:if="{{everyDay}}">
+          <view class='module-list flex-item1 tc' bindtap='collectedfn'>
+            <view class=' module-list-collected commoico-box'></view>
+            <view class='my-module-text'>收藏</view>
+          </view>
+        </block> -->
+            <view class='module-list flex-item1 tc' catchtap='showsubmitWrongFn'>
+              <view class=' module-list-error commoico-box'></view>
+              <view class='my-module-text'>纠错</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{isPaperExame}}">
+      <view class='footer-btn clearfix' id='footerHeight'>
+        <view class='footer-item' catchtap='showOptionpage'>答题卡</view>
+        <view class='footer-item'  catchtap='submitPaper'>提交</view>
+      </view>
+    </block>
+  </block>
+  <block wx:if="{{nodata}}">
+    <view class='ver-middle nodata-box'>
+      <image class='img-class' src='../../images/no-data.png'></image>
+      <view class='no-data-size tc'>暂无数据</view>
+    </view>
+  </block>
+  <view class='height40'></view>
+</view>
+
+
+<!--弹出框  -->
+<view class='bg-opa' wx:if="{{changeWrongshow}}">
+
+  <view class="exam_list_box tc" style="display: block;">
+    <view class="circle_clear" catchtap='closeWindow'>X</view>
+    <view class='tc changeWr-title'>试题纠错</view>
+    <view class='selected-outerbox clearfix'>
+      <view class='selected-list fl clearfix' data-id="{{item.id}}" wx:for="{{changeWrong}}" catchtap='selectedWrong' wx:key="a">
+        <!-- {{item.tag?" √":""}} -->
+        <view class='selected-box fl'>
+          <view class=' {{item.tag?" act":""}}'></view>
+        </view>
+        <font class='fl'>{{item.name}}</font>
+      </view>
+    </view>
+    <view class="section">
+      <form catchsubmit="submitWrongFn">
+        <textarea fixed='true' class='textarea-box' placeholder="请输入内容" placeholder-style="color:#666;" name="textarea" />
+        <button class="submit-btn" form-type="submit"> 提交 </button>
+      </form>
+    </view>
+  </view>
+</view>
+<view class='bg-opa' wx:if="{{doNote}}">
+  <view class="exam_list_box tc" style="display: block;">
+    <view class="circle_clear" catchtap='closeWindowcur'>X</view>
+    <view class='tc changeWr-title'>记笔记</view>
+    <view class="section">
+      <form catchsubmit="bindFormSubmit">
+        <textarea fixed='true' value="{{currNoteContent}}" class='textarea-box' placeholder="请输入笔记" placeholder-style="color:#666;" name="textarea" />
+        <button class="submit-btn" form-type="submit"> 提交 </button>
+      </form>
+    </view>
+  </view>
+</view>
+
+<view class='bg-opa' wx:if="{{resaultTistatus}}">
+  <view class="exam_list_box tc">
+    <view class="circle_clear" catchtap='reticloseWindow'>X</view>
+    <view class='tc changeWr-title'>正确率
+      <text class='right-rate'>{{rightRate}}%</text>
+    </view>
+    <view class='core-box'>
+      <view class='selected-outerbox clearfix'>
+        <view class='selected-list  fl clearfix'></view>
+        <view class='selected-list fl clearfix'>
+          <view class='right-top-box fl'>对</view>
+        </view>
+        <view class='selected-list fl clearfix'>
+          <view class='erro-top-box fl'>错</view>
+        </view>
+      </view>
+      <block wx:for="{{resaultTi}}" wx:key="a" wx:if="{{resaultTi.length>0}}">
+        <view class='selected-outerbox clearfix'>
+          <view class='selected-list ti-type fl clearfix'>
+            <view class='{{item.type==1?"single-box":"more-box"}}'>{{item.QuestionType}}</view>
+          </view>
+          <view class='selected-list fl clearfix'>
+            <view class='right-box fl'>{{item.rightTinum.length}}/{{item.tiArr.length}}</view>
+          </view>
+          <view class='selected-list fl clearfix'>
+            <view class='erro-box fl'>{{item.tiArr.length-item.rightTinum.length}}/{{item.tiArr.length}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="section">
+      <button class="submit-btn" bindtap='gotoAnswersheet'> 查看答题卡 </button>
+    </view>
+  </view>
+</view>
+<import src="../../template/showToast/showToast.wxml" />
+<template is="showToast" data="{{showToast:showToast}}"> </template>

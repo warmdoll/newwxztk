@@ -1,0 +1,51 @@
+.center-box{padding: 20rpx 0;}
+.selected-box{
+  border-radius:60rpx;
+  background:rgba(47, 122, 238, .3);
+  background-color:#629cef;
+  max-width:350rpx;
+  margin-left:-30px;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.course-name{
+  padding:0 30rpx 0 40rpx;
+  margin:0 20rpx 0 80rpx;
+  display:block;
+  width:200rpx;
+  font-size:28rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.course-name.commonico::before{
+  width:20rpx;
+  height:50rpx;
+  background-position:-342rpx 12rpx;
+  background-size: 1800rpx 900rpx;
+  vertical-align:middle;
+  top:12rpx;
+  left:5rpx;
+
+}
+.subject-box{
+  padding: 20rpx 40rpx;
+}
+.subject-list{
+  font-size: 28rpx;
+  color: #333;
+  padding: 20rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.subject-item-rt{
+  width: 90%;
+}
+.goto-href.commonico::before{
+    width:30rpx;
+    height:50rpx;
+    background-position:-352rpx 12rpx;
+    background-size: 1800rpx 900rpx;
+    vertical-align:middle;
+    top:0rpx;
+    left:30rpx;
+}

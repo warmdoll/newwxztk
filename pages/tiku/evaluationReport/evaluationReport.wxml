@@ -1,0 +1,64 @@
+<view class='bg-linner lineargrad'>
+  <view class='box-pa'>
+    <view class='flex-box flex-between evaluate-top'>
+      <image class='evaluat-img' src='{{srcUrl}}'></image>
+      <view>
+      <block wx:if="{{!isPaperExameStatus}}">
+        <view class='evaluat-rata'>正确率：
+          <icon class='rate-naum'> {{rightRate}}%</icon>
+        </view>
+      </block>
+      <block wx:else>
+      <view class='evaluat-rata'>总分
+          <icon class='rate-naum'> {{totalScore}}分</icon>
+        </view>
+      </block>
+        <view class='exame-name over-circle'>{{exametitle}}</view>
+        <button class='sharebtn-box' open-type="share">
+          <view class='evaluat-btn add-new-style'>晒成绩分享您的学习经验~</view>
+        </button>
+      </view>
+    </view>
+    <view class='evaluatmodule-box box-shadow common-bgwhite'>
+      
+      <view class='change-btn-item'>专项得分 </view>
+     
+      <view class='analysis-list'>
+       
+            <view class='flexbox common-flexrow flex-list-box clearfix'>
+    
+              <block wx:for="{{tiTypeArr}}" wx:key="a">
+                <view class='flex-list fl' >
+                    <view class='flex-item'>
+                      <view class='flex-img tc'>
+                        <view class='ti-num'>{{item.tiArr.length}}题</view>
+                      </view>
+                      <view class='fontc6 tc commonico-box-eva "{{item.className}}" ' >{{item.QuestionType}}</view>
+                    </view>
+                </view>
+              </block>
+            </view>
+          
+             <!-- <view class='help-btn'>帮你分析薄弱知识点</view> -->
+          
+            
+      </view>
+      <view class='change-btn-item'>答题卡</view>
+      <view class='analysis-list-item fontc6 clearfix'>
+          <block wx:if="{{tiNumber.length>0}}" wx:for="{{tiNumber}}" wx:key="">
+            <view class='ti-box' catchtap='clickBtn' data-tinum="{{item.tiNum}}">
+               <view class='ti-btn  {{item.mySelected==item.rightDaan?"right-act":""}} {{item.mySelected!==""&&item.mySelected!=item.rightDaan?"wrong-act":""}}'>{{item.tiNum}}</view>
+            </view>
+          </block>
+       </view>
+    </view>
+    
+  </view>
+
+</view>
+ <view class='footer-btn clearfix' id='footerHeight'>
+    <view class='footer-item' bindtap='reTest'>重新测试</view>
+    <view class='footer-item' bindtap='allTiAnalyze'>全部解析</view>
+  </view>
+
+  

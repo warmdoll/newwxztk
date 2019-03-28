@@ -1,0 +1,76 @@
+@import "../BCLVideo/video.wxss";
+@import '../template/showDialog/showDialog.wxss';
+.title-content{
+  height: 100rpx;
+  font-size: 30rpx;
+  align-items: center;
+}
+.title-left{
+  padding-left: 30rpx;
+  color: #676767;
+}
+.title-right{
+  align-items: center;
+}
+.title-right-icon{
+  width: 44rpx;
+  height: 44rpx;
+  background-size: 1800rpx 900rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position: -761rpx -88rpx;
+}
+.title-right-desc{
+  height: 100rpx;
+  flex-direction: column;
+  align-items: center;
+  width: 210rpx;
+  color: #fff;
+  justify-content: center;
+}
+.noCan{
+  background-color: #d5d5d5;
+}
+.canPay{
+  background-color: #FD9B19;
+}
+.line{background-color:#f2f2f2;height:10rpx;}
+.catalog-content{
+  padding: 0 30rpx;
+  height: 100rpx;
+}
+.catalog-title{
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #676767;
+  border-bottom: 1px solid #f2f2f2;
+}
+.title-right-icon-content{
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+  padding: 0 30rpx;
+  position: relative;
+}
+.share-btn{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+}
+.fixed-video{
+  position: relative;
+  width: 100%;
+  height: 250px;
+  z-index: 1;
+  
+}
+ .courseplay-content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.list-li{
+  height: calc(100% - 750rpx);
+  overflow: scroll;
+} 

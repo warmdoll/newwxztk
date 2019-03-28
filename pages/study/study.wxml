@@ -1,0 +1,124 @@
+<view class='bg-linner lineargrad'>
+<!--切换考试或科目  -->
+  <view class='selected-box clearfix'>
+    <view class='selected-img fl'></view>
+    <text class='commonico course-name over-circle fl' bindtap='gotoSelecsubject'>{{subjectTitle}}</text>
+  </view>
+  <!--学习模块  -->
+  <block wx:if="{{getmodulefn}}">
+    <view class='module-box box-shadow common-bgwhite' >
+      <swiper current="{{currentTab}}" indicator-dots="true" indicator-color="#dbdbdb" indicator-active-color="#58a6f8"  duration="1000" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
+        <block wx:if="{{ModulesObj.length>0}}" wx:for="{{ModulesObj}}" wx:key="h">
+          <swiper-item> 
+              <view class='flexbox common-flexrow' mode="aspectFill">
+              <block wx:for="{{item}}" wx:key="h">
+                <view class='flex-list' bindtap='gotohref' data-type="{{item.ModuleAction.Type}}" data-typeAction="{{item.ModuleAction.TypeAction}}" data-tagId="{{item.ModuleAction.Data.TagID!='undefined'?item.ModuleAction.Data.TagID:'00'}}" data-title="{{item.Title}}" bindtap='jumptoPage'>
+                  <view class='flex-item'>
+                    <view class='flex-img tc'>
+                      <image class='ico-box' src="{{item.Ico}}"></image>
+                    </view>
+                    <view class='fontc6 tc'>{{item.Title}}</view>
+                  </view>
+                </view>
+                </block>
+            </view>
+        </swiper-item>  
+        </block>
+      </swiper> 
+    </view>
+  </block>
+  <!--升级模块  -->
+  <view class='up-se-box box-shadow common-bgwhite common-flexrow' wx:if="{{getUpGradesObj.ResultCode==0&&getUpGradesObj.Data.IsShow}}">
+
+      <view class="up-ser-title">
+        <view class='upgrade-service over-circle' >{{getUpGradesObj.Data.Content}}</view>
+        <progress class='progress-width' percent="{{getUpGradesObj.Data.Progress}}" active color="#58a6f8"/>
+      </view>
+      <view>
+        <view  class='upgrade-btn' bindtap='gotoupgtade'>升级</view>
+      </view>
+  </view>
+ </view>
+<!--每日一练  -->
+<!-- <block wx:if="{{practiceObj.isShow&&practiceObj.Data!=null&&practiceObj.ResultCode==0}}">
+  <view class='lianxi-recommend common-bgwhite'>
+    <view class='tc fontc6 lianxi-title'><text class="h-line">—</text>每日一练<text class="h-line">—</text></view>
+    <view class='common-flexrow'>
+      <view class='lianx-item1'>
+        <text class='lianx-date'>{{practiceObj.Data.date}}</text>
+        <view class='lianx-tag'  >
+          <block wx:for="{{practiceObj.Data.questionLabel}}"  wx:key="h">
+            <text class='tag-btn' style='color:{{item.color}};border:1px solid {{item.color}}'>{{item.title}}</text>
+          </block>
+        </view>
+      </view>
+      <view class='lianx-item' bindtap="gotoupgra">
+        <view class='rt doti-box'>
+          <button class='doti-btn box-shadow rt {{!practiceObj.Data.isdoti ? " havedoti" : " doti"}}'>{{practiceObj.Data.dotititle}}</button>
+        </view>
+        <view wx:if="{{practiceObj.Data.importantLevel>0}}">
+            <text class='start-box fontc6'>重要等级:</text>
+            <block wx:for="{{practiceObj.Data.importantLevel}}" wx:key="h">
+              <image class='start' src='../images/start.png'></image> 
+            </block>
+        </view>
+      </view>
+    </view>
+     <block wx:if="{{!practiceObj.Data.isdoti}}"> 
+        <view class='jump-datepage tc' bindtap='jumpPage'>
+          查看往期
+        </view>
+      </block>
+  </view>
+</block>
+<view class='line'></view> -->
+<!--章节列表  -->
+
+<view class='chapter-box'>
+  <!--学习进度-->
+  <!-- <view class='chapter-progress clearfix'>
+    <view class='chapter-progress-lf fl'>
+      <view class="wrap">
+        <view class="circle-box">
+          <canvas class="circle" style="width:100px; height:100px;" canvas-id="canvasArcCir">
+          </canvas>
+          <view class="draw_btn">
+            <view class='rate-text fontcbl'>{{getChapter.Data.StudyProgress}}<text>%</text></view>
+            <view class='fontc6'>学习进度</view>
+          </view>
+        </view>
+      </view>
+    </view> 
+    <view class='chapter-progress-rt rt tc'>
+      <text class='fontc6 fontsize28 '>{{subjectTitle}}</text>
+      <view class='chapter-rt-bt common-flexrow'>
+        <view class='chapter-rt-btitem'>
+          <view class='fonts24 fontc3'>已学</view>
+          <text class='fontcbl fonts24'>{{getChapter.Data.TotalHasHoursCount}}</text>
+        </view>
+        <view class='chapter-rt-btitem'>
+          <view class='fonts24 fontc3'>总学</view>
+          <text class='fontcbl fonts24'>{{getChapter.Data.TotalHoursCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!--章节列表-->
+  <!-- <view class='chapter-list-box'>
+    <block wx:if="{{ClassHoursList}}"></block>
+    <myconponent EventHandler="gotocourseplay" id="componentId" subjectTitle="{{subjectTitle}}" wx:if="{{isShowCom}}"></myconponent>
+   
+  </view>  -->
+
+     <myconponent EventHandler="gotocourseplay" id="componentId" showCircle="{{showCircle}}" subjectTitle="{{subjectTitle}}" wx:if="{{isShowCom}}" dataIsChange="{{dataIsChange}}"></myconponent>
+</view>
+
+
+<!--引入弹出框模板-->
+<import src="../template/showToast.wxml" />  
+<template is="showToast" data="{{showToast: showToast}}" />  
+<!--引导下载App  -->
+<view class='appName'>
+  <import src="../template/downAppTips/downAppTips.wxml" />
+<template is="downApp" data="{{downAppShowToast:downAppShowToast,appName:appName,logoImg:logoImg}}">  </template>  
+</view>

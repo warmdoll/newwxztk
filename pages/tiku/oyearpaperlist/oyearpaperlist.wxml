@@ -1,0 +1,14 @@
+<import src ="../../template/templateTikulist/templateTikulist.wxml"/>
+<import src="../../template/showDialog/showDialog.wxml" />
+<view class='practice-box'>
+  <block wx:if="{{dataArr.length>0}}" wx:for="{{dataArr}}" wx:key="a">
+      <template is="tikulist" data="{{Day:item.Day,DoCount:item.TestCount,ExamID:item.ExamID,QuestionsID:item.QuestionsID,SubjectID:item.SubjectID,SubjectName:item.SubjectName,tiTitle:item.Title,tiID:item.ID,UnlockWay:item.UnlockWay}}"/>
+  </block>
+  <block wx:if="{{nodata}}">
+     <view class='ver-middle nodata-box'>
+      <image class='img-class' src='../../images/no-data.png'></image>
+      <view class='no-data-size tc'>暂无数据</view>
+    </view>
+  </block>
+  <template is="showDialog" data="{{...item}}"/>
+</view>

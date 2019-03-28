@@ -1,0 +1,48 @@
+
+<template  name="list3">
+<view class='list-ul'>
+<!--这是第一级-->
+  <view class='list-li' data-id='{{Id}}'   bindtap='toggleclcik'   data-current="0" bindtap='listopen'>
+ 
+    <view class='cha-ico3 list-li_text clearfix'>
+      <view class='clist-li-title fl'>
+       <view class='over-circle'>{{Title}}</view> 
+      </view>
+      <!--ClassHoursType==0或3需要购买  -->
+      <block wx:if="{{ClassHoursType==0||ClassHoursType==3}}">
+        <!--已买 -->
+        <block wx:if="{{HasBuy}}">
+          <!--VideoUnique不等于null&&长度大于0 显示播放按钮 其它条件不显示任何按钮 -->
+          <view class='commonico rt {{VideoUnique!=null&&VideoUnique.length>0? "course-ico":""}} '></view>
+        </block>
+        <!--未买 显示购物车按钮  -->
+         <block wx:else>
+          <view class='commonico rt cart-ico'></view>
+        </block>
+      </block>
+
+       <!--ClassHoursType==1或2不需要购买  -->
+      <block wx:if="{{ClassHoursType==1||ClassHoursType==2}}">
+        <block wx:if="{{UnlockWay==0||UnlockWay==2||UnlockWay==3}}">
+          <!--0,2,3 判断是否可播放  -->
+           <view class='commonico rt {{VideoUnique!=null&&VideoUnique.length>0? "course-ico":""}} '></view>
+        </block>
+        <block wx:if="{{UnlockWay==1}}">
+          <!--1 分享解锁  -->
+          <view class='commonico rt share-ico'></view>
+        </block>
+      </block>
+    </view>
+    <view >
+      <text class='fontc9'>{{ClassHoursInfo}}</text>
+      <text class='fontc9 pbuy-stu'>{{pBuyInfo}}</text>
+    </view>
+    <!--这是第二级-->
+      <block wx:for="{{nextObj}}" wx:for-item="item"  wx:key="key">
+        
+      </block>
+    <!-- <import  src="2"/>
+     <template is="list2" data='{{children}}'/> -->
+  </view>
+</view>
+</template>

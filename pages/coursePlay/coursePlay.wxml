@@ -1,0 +1,37 @@
+ <import src="../template/showDialog/showDialog.wxml" /> 
+<view class='courseplay-content'>
+  <view class='fixed-video' wx:if='{{isShowVideo}}'>
+    <include src="../BCLVideo/video.wxml" />
+  </view>
+ <image style="width: 100%;"  wx:if='{{!isShowVideo}}' src="http://img.wangxiao.cn/bjupload/2018-05-28/b415488d-42b7-4dcc-b3dd-1d0575717a64.png"></image>
+  <view class='flex-box flex-between title-content'>
+    <view class='title-left'>{{Count}}人正在观看</view>
+    <view class='flex-box title-right'>
+      <view class='flex-box title-right-icon-content'>
+        <button open-type='share' class='share-btn'></button>
+        <image src='' class='title-right-icon'></image>
+      </view>
+      <view class='flex-box title-right-desc canPay' bindtap='nowBay' wx:if="{{BuyType != 0}}">
+        <text>￥{{Price}}</text>
+        <text>立即购买</text>
+      </view>
+      <view wx:else class='flex-box title-right-desc noCan'>
+        <text>已购买</text>
+      </view>
+    </view>
+  </view>
+  <view class='line'></view>
+  <view class='catalog-content'>
+    <view class='catalog-title'>目录</view>
+  </view>
+  <view class='list-li'>
+    <!--章节列表-->
+    <view class='chapter-list-box'>
+      <myconponent productsId="{{ProductsId}}" playId="{{id || CoursePlayClassHours.Id}}" defaultuu="{{CoursePlayClassHours.UserUnique}}" defaultvu="{{CoursePlayClassHours.VideoUnique}}" defaultActivityId="{{CoursePlayClassHours.activityId}}" wx:if="{{ProductsId}}"
+        bind:playevent="setVideoData"></myconponent>
+    </view>
+  </view>
+</view>
+  <!--登录弹窗-->
+<template is="showDialog" data="{{...item}}"/>
+<!--登录弹窗-->

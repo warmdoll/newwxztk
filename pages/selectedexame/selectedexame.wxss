@@ -1,0 +1,77 @@
+Page {
+  position: absolute;
+  font-size: 36rpx;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #FAFAFA;
+  overflow-y: hidden;
+}
+
+scroll-view{
+  height: 100%;
+}
+.view-center{padding: 20rpx 0;}
+.exame-name {
+  font-size: 28rpx;
+  color: #666;
+  width: 33.33%;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  
+}
+.exame-name.act{
+  color: #58a6f8;
+  border-bottom: 4rpx solid #58a6f8;
+  background:rgba(47,122,238,.1);
+}
+.flex-exame-name{
+  flex-direction: row;
+   flex-wrap: wrap;
+}
+.exame-category{
+  margin: 20rpx 0 20rpx 30rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+.exame-nameico{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  margin: -5rpx 20rpx 0 0;
+}
+
+
+.exam_list-scroll{
+    max-height: 550rpx;
+    overflow-y: scroll;
+}
+.exam_list_box {
+     width: 65%;
+     padding: 50rpx 20rpx 30rpx 20rpx;
+}
+.circle_clear {
+    font-size: 35rpx;
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 50%;
+    background-color: #999;
+    top:-30rpx;
+    right: -15px;
+    text-align: center;
+    color: #fff;
+}
+.examlist{
+  font-size: 24rpx;
+  padding: 20rpx 10rpx;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  margin-top: 10rpx;
+  color: #999;
+}
+.examlist.act{
+  border: 1px solid #58a6f8;
+  color: #58a6f8;
+}

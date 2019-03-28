@@ -1,0 +1,2 @@
+<!--pages/template/componont/myCon.wxml-->
+<text>{{arr}}</text>222

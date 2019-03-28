@@ -1,0 +1,67 @@
+textarea{
+  width: 100%;
+}
+.evaluate-content{
+  font-size: 28rpx;
+  color: #666666;
+  background-color: #f2f2f2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.evaluate-content-item{
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+.star-content{
+  flex-grow: 1;
+}
+.evaluate-order{
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.evaluate-item{
+  display: flex;
+  align-items: center;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.evaluate-item-title{
+  margin-right: 30rpx;
+}
+.evaluate-price:nth-of-type(3){
+  height: 68rpx;
+  line-height: 68rpx;
+  border-bottom: none;
+}
+.evaluate-box{
+  padding: 30rpx;
+}
+.evaluate-textarea{
+  background-color: #fff;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.evaluate-confirm-btn{
+  margin: auto;
+  width: 80%;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 34rpx;
+  background-color: #FF8500;
+  border-radius: 44rpx;
+  text-align: center;
+}
+.evaluate-crowdfunding-btn{
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 34rpx;
+  background-color: #58A6F8;
+  border-radius: 44rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}

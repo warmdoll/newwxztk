@@ -1,0 +1,17 @@
+<!--pages/signagreement/signagreement.wxml-->
+<view class='top-tip'>
+  <text class='top-tip-content'>为保障您的协议权益</text>
+  <text class='top-tip-content'>请如实填写身份信息</text>
+</view>
+<view>
+  <view class='flex-box voucher-item'>
+    <text>姓名：</text>
+    <input class='invoice-input' placeholder="请输入姓名" type='text' value='{{name}}' bindinput='bindNameValue'></input>
+  </view>
+  <view class='flex-box voucher-item'>
+    <text>身份证号：</text>
+    <input class='invoice-input' placeholder="请输入身份证号" type='idcard' value='{{idnumber}}' bindinput='bindIdValue'></input>
+  </view>
+  <view class='bottom-tip'>*仅用于签署商品协议，中大网校保证100%保密。</view>
+  <view class='sign-btn' bindtap='signAgreement'>签署协议</view>
+</view>

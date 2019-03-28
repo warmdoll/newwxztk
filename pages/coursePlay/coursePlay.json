@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "课程视频",
+  "component": true,
+  "usingComponents": {
+    "myconponent": "../component/coursepalylist/coursepalylist"
+  }
+}

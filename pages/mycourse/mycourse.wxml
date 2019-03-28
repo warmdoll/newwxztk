@@ -1,0 +1,58 @@
+<view wx:if="{{!setmeallist || setmeallist.length ==0}}" class='flex-box no-data'>
+  <image src='../../images/noData.png' class='no-data-img'></image>
+  <view class='no-data-text'>暂无数据</view>
+</view>
+<view class='view-center'>
+  <block wx:for="{{setmeallist}}" wx:key="index">
+    <view class='flex-box setmeal-list' bindtap="goCourseDetailPage" data-id="{{item.ProductsId}}">
+      <!-- <view class='flex-box betweenplace setmeal-list-top'> -->
+      <view class='flex-box setmeal-item-content'>
+        <view class='setmeallist-topleft'>
+          <image src="{{item.Img}}" wx:if="{{item.Img != ''}}"></image>
+          <image src="../../images/courseCover.png" wx:else></image>
+        </view>
+        <view class='flex-box setmeallist-topright'>
+          <view class="setmeal-title">{{item.Title}}</view>
+          <view class="flex-box setmeal-tags">
+            <block wx:for="{{item.Tags}}" wx:key="index" wx:for-item="itemtag">
+              <text class='setmeal-itemtag-plus' style="color:{{itemtag.Color}};border-color:{{itemtag.Color}}">{{itemtag.Title}}</text>
+              <!-- <text class='setmeal-itemtag-all'>全科</text> -->
+            </block>
+          </view>
+          <progress color='#2F7AEE' percent="{{item.Progress}}" show-info stroke-width="3" class='progress'/>
+        </view>
+      </view>
+      <!-- <view class='br'></view>
+      <view class='flex-box setmeal-list-bottom'>
+        <view>已有
+          <text class='setmeal-enrolment'>{{item.pBuy}}</text>人报名</view>
+        <text class='setmeal-price'>￥{{item.CurrentPrice}}</text>
+      </view> -->
+    </view>
+  </block>
+  <!-- <block>
+    <view class='flex-box setmeal-list'>
+      <view class='flex-box setmeal-list-top'>
+        <view class='setmeallist-topleft'>
+          <image src="../../images/courseCover.png"></image>
+        </view>
+        <view class='flex-box setmeallist-topright'>
+          <view class="setmeal-title">工商企业管理工商企业管理</view>
+          <view class="flex-box setmeal-tags">
+            <block>
+              <text class='setmeal-itemtag-plus'>PLUS</text>
+              <text class='setmeal-itemtag-all'>全科</text>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class='br'></view>
+      <view class='flex-box setmeal-list-bottom'>
+        <view>已有<text class='setmeal-enrolment'>213</text>人报名</view>
+        <text class='setmeal-price'>￥2880.0</text>
+      </view>
+    </view>
+  </block> -->
+
+  <view wx:if="{{!isHasMore}}" class='baseline'>--------我是有底线的--------</view>
+</view>

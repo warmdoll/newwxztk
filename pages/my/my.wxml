@@ -1,0 +1,111 @@
+<view class="center-box-top">
+  <view class='module-box box-shadow common-bgwhite'>
+    <view class='flex-box my-top-box common-flexrow'>
+      <view class='flex-list flex-list-lf'>
+        <image class='user-img' src='{{avatarUrl || "../../images/pic.png"}}'></image>
+      </view>
+      <view class='flex-list-rt'>
+        <!-- <button class='login-btn  box-shadow common-btn' wx:if="{{!userName}}" bindtap="checkUserLogin">登录/注册</button> -->
+         <button class='login-btn  box-shadow common-btn' wx:if="{{!userName}}" bindgetuserinfo="getWxUserInfo" open-type='getUserInfo'>登录/注册</button>
+        <view class="fontc9 list-rt-bt" wx:if="{{!userName}}">请登录，学习更多课程</view>
+        <view class="fontc9 list-rt-bt" wx:else>欢迎您,{{nickName || '同学'}}</view>
+        <!-- <view class='fontc6 flex-list-phone'>18848950916</view> -->
+      </view>
+    </view>
+  </view>
+  <!--我的订单 协议 课程  -->
+  <view class='box-shadow common-bgwhite my-module'>
+    <view class='flex-box my-top-box common-flexrow'>
+      <view class='module-list flex-item1 tc' bindtap='toOrderList'>
+        <view class=' module-list-order commoico-box'></view>
+        <view class='my-module-text'>我的订单</view>
+      </view>
+      <view class='module-list flex-item1 tc' bindtap='toAgreement'>
+        <view class=' module-list-xiyi commoico-box'></view>
+        <view class='my-module-text'>我的协议</view>
+      </view>
+      <view class='module-list flex-item1 tc' bindtap='toMyCourse'>
+        <view class=' module-list-course commoico-box'></view>
+        <view class='my-module-text'>我的课程</view>
+      </view>
+    </view>
+  </view>
+  <view class='my-module'>
+    <view class='subject-list flex-box' bindtap='toExclusiveTeacher'>
+      <view class='left-content flex-box'>
+        <view class='left-icon-teacher'></view>
+        <view>专属老师</view>
+      </view>
+      <view class='right-icon-link'></view>
+    </view>
+  </view>
+</view>
+<view class='bg-interval'></view>
+<view class='center-box'>
+  <view class='subject-list flex-box position-relative'>
+    <button open-type='contact' class='zixun-btn' session-from="{{sessionFrom}}"></button>
+    <view class='left-content flex-box'>
+      <view class='left-icon-contact'></view>
+      <view>联系客服</view>
+    </view>
+    <view class='right-icon-link'></view>
+  </view>
+  <view class='subject-list flex-box' bindtap='gotoHref'>
+    <view class='left-content flex-box'>
+      <view class='left-icon-recommend'></view>
+      <view>应用推荐</view>
+    </view>
+    <view class='right-icon-link'></view>
+  </view>
+</view>
+<view class='bg-interval'></view>
+<view class='center-box'>
+  <!-- <view class='subject-list flex-box' bindtap='settingAuthority'>
+    <view class='left-content flex-box'>
+      <view class='left-icon-authority'></view>
+      <view>权限设置</view>
+    </view>
+    <view class='right-icon-link'></view>
+  </view> -->
+  <view class='subject-list flex-box position-relative'>
+    <button open-type='openSetting' class='zixun-btn'></button>
+    <view class='left-content flex-box'>
+      <view class='left-icon-contact'></view>
+      <view>权限设置</view>
+    </view>
+    <view class='right-icon-link'></view>
+  </view>
+  <block wx:for="{{menus}}" wx:key="item">
+    <view class='subject-list flex-box' bindtap='menutap' data-action="{{item.action}}" data-url="{{item.url}}">
+      <view class='left-content flex-box'>
+        <view class='left-icon-authority'></view>
+        <view>{{item.title}}</view>
+      </view>
+      <view class='right-icon-link'></view>
+    </view>
+  </block>
+</view>
+<view class="center-box">
+  <!-- <view class='subject-list flex-box'> 
+        <view class='subject-item-rt subject-item5 commonico '>每日答题提醒</view>
+        <view class='goto-href commonico'></view>
+      </view> -->
+  <!-- <view class='subject-list flex-box posi-relative'>
+    
+    <view class='subject-item-rt subject-item6 commonico '>联系客服</view>
+    <view class='goto-href commonico'></view>
+  </view>
+  <view class='subject-list flex-box' bindtap=''>
+    <view class='subject-item-rt subject-item7 commonico ' bindtap='gotoHref'>应用推荐</view>
+    <view class='goto-href commonico'></view>
+  </view> -->
+  <!--应用推荐  -->
+  <!-- <view class='yingyong-box'>
+          <view class='flex-box my-top-box common-flexrow'>
+            <view class='module-list flex-item1 tc' wx:for="{{applicationArr}}" wx:key="a"> 
+              <image class=' module-list-img' src='{{item.Ico}}'></image>
+              <view class='my-module-text'>{{item.Name}}</view>
+            </view>
+          </view>
+      </view> -->
+</view>

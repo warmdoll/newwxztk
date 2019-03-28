@@ -1,0 +1,8 @@
+
+ <view class='center-box'>
+
+   <myconponent id="componentId"  wx:if="{{isShowCom}}"></myconponent>
+    
+ </view>
+
+    

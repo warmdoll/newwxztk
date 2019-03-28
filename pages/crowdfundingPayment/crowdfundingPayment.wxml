@@ -1,0 +1,66 @@
+<import src="../outerFile/wxParse/wxParse.wxml" />
+<view class='flex-box crowdfunding-content remaining-time-content'>
+  <view class='remaining-time'>
+    剩余时间
+    <!-- <picker mode="region" bindchange="bindDayChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      当前选择：{{region[0]}}
+    </view>
+  </picker> -->
+  </view>
+  <view class='flex-box remaining-time-right'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{ExpireTime}}" range-key="Value">
+      <view class="weui-input">{{ExpireTime[index].Value}}</view>
+    </picker>
+    <view class='right-icon'></view>
+  </view>
+</view>
+<view class='br'></view>
+<view class='crowdfunding-content'>
+  <view class='flex-box who-anm-i'>
+    <text class='who-title'>我是谁:</text>
+    <input class='who-input' placeholder="请填写您的真实姓名" type='text' value='{{inputName}}' bindinput='bindInputName'></input>
+  </view>
+  <view class='pass-message'>
+    <text class='pass-message-title'>捎句话：</text>
+    <textarea class='pass-message-textarea' placeholder="{{Explain}}" value='{{passMessage}}' bindinput='bindPassMessage'></textarea>
+  </view>
+  <view class='{{isAgreement ? "crowdfunding-btn":"cantcrowdfunding-btn"}}' bindtap='createCrowdfunding'>发起众筹</view>
+  <button open-type="share"></button>
+  <view>
+    <checkbox-group bindchange="checkboxChange" class='agreement'>
+      <checkbox class='agreement-checkbox' value="{{isAgreement}}" checked="{{isAgreement}}" />
+      <text>我已阅读并同意</text>
+      <text class='agreement-a' bindtap='toProtocalDetail'>{{protocolTitle}}</text>
+    </checkbox-group>
+  </view>
+  <view class='explain'>
+    <text class='explain-title'>众筹说明</text>
+    <view class='flex-box explain-tab'>
+      <view class='flex-box explain-tab-item'>
+        <view class='explain-tab-img explain-tab-img1'></view>
+        <text>发起众筹</text>
+      </view>
+      <view class='flex-box explain-tab-item'>
+        <view class='explain-tab-img explain-tab-img2'></view>
+        <text>好友支持</text>
+      </view>
+      <view class='flex-box explain-tab-item'>
+        <view class='explain-tab-img explain-tab-img3'></view>
+        <text>众筹成功</text>
+      </view>
+      <view class='flex-box explain-tab-item'>
+        <view class='explain-tab-img explain-tab-img4'></view>
+        <text>开通课程</text>
+      </view>
+    </view>
+    <view class='explain-details'>
+      <view class='course-contents'>
+        <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class='share-modile' wx:if="{{showGuide}}" bindtap='hideGuide'>
+  <image src='../../images/share.png' class='share-modile-img'></image>
+</view>

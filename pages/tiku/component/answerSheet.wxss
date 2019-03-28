@@ -1,0 +1,83 @@
+
+.outer-height{
+  height: 90%;
+  width: 90%;
+  background-color: #fff;
+  z-index: 100000;
+  position: fixed;
+  top: 10%;
+  left: 5%;
+}
+.fl{
+  float: left;
+}
+.tc{
+  text-align: center;
+}
+.clearfix:after{visibility:hidden;display:block; font-size:0; content:'\20'; clear:both; height:0;}
+
+.change-btn{
+  border-radius: 40px;
+  border: 1px solid #58a6f8;
+  width: 60%;
+  margin: 40rpx auto;
+  overflow: hidden;
+}
+.change-btn-item{
+  width: 50%;
+  padding: 15rpx 0px;
+  color: #58a6f8;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+.change-btn-item.act{
+  background-color: #58a6f8;
+  color: #fff;
+}
+.ti-box{
+  width: 14.21%;
+  float: left;
+  margin: 20rpx 0;
+}
+.ti-btn{
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 0 auto;
+  text-align: center;
+  color: #666;
+  border: 1px solid #58a6f8;
+  border-radius: 50%;
+  font-size: 30rpx;
+}
+.ti-btn.right-act{
+  background-color:#6fd89c;
+  color: #fff;
+  border: 1px solid #6fd89c;
+}
+.ti-btn.wrong-act{
+  background-color:#f46464;
+  color: #fff;
+  border: 1px solid #f46464;
+}
+.ti-title{
+  padding: 30rpx 20rpx 10rpx 10rpx;
+  font-size: 28rpx;
+}
+.footer-btn{
+  width: 90%;
+  position: fixed;
+  bottom: 0;
+  left: 5%;
+  background-color: #58a6f8;
+  color: #fff;
+  z-index: 1000;
+}
+.footer-item{
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 25rpx 0;
+  border-right: 1px solid #fff;
+  font-size: 34rpx;
+}

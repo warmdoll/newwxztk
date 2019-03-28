@@ -1,0 +1,128 @@
+<view class='view-center'>
+  <view class='goods-info'>
+    <text class='goods-info-title'>商品信息</text>
+  </view>
+  <view class='flex-box setmeal-list' bindtap="goCourseDetailPage" data-id="{{item.ProductsId}}">
+    <!-- <view class='flex-box betweenplace setmeal-list-top'> -->
+    <view class='betweenplace'>
+      <view class='setmeallist-topleft'>
+        <image src="{{Img}}"></image>
+      </view>
+      <view class='flex-box setmeallist-topright'>
+        <view class="setmeal-title">{{Title}}</view>
+        <view class="setmeal-argument" catchtap='productAgreement'>《产品协议》</view>
+        <view class="flex-box setmeal-prices">
+          <view class='price-left'>
+            <text class='now-price'>￥{{Price}}</text>
+            <text class='old-price'>/￥{{OriginalPrice}}</text>
+          </view>
+          <view class='setmeal-count'>数量 1</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='voucher-content coupon-content' wx:if="{{YHCard.length !=0 }}">
+    <view class='flex-box coupon-info'>
+      <text class='goods-info-title'>优惠券信息</text>
+    </view>
+    <block wx:for="{{YHCard}}" wx:key="index">
+      <view class='coupon-padding'>
+        <view class='flex-box coupon-list-content'>
+          <view class='flex-box coupon-left'>
+            <view>
+              <text class='coupon-price'>{{item.YhMoney}}</text>
+              <text class='coupon-unit'>{{item.Unit}}</text>
+            </view>
+            <view class='flex-box coupon-item-info'>
+              <view class='coupon-title'>优惠券</view>
+              <view class='coupon-wxpire'>有效期至:{{item.ExpiresTime}}</view>
+            </view>
+          </view>
+          <view class='flex-box coupon-right' bindtap='useCoupon' data-item="{{item}}">
+            <view class='flex-box coupon-circular'>
+              <view class='coupon-circular-check' wx:if="{{item.YhNumber == useCouponId}}"></view>
+            </view>
+            <view class='coupon-use'>使用</view>
+            <view class='coupon-desc'>满{{item.YhLimit}}{{item.Unit}}使用</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='voucher-content'>
+    <view class='flex-box voucher-info'>
+      <text class='goods-info-title'>报销凭证</text>
+      <switch color='#58A6F8' checked="{{isVoucher}}" bindchange="isVoucherChange" />
+    </view>
+    <view class='flex-box voucher-list-content' wx:if="{{isVoucher}}">
+      <view class='flex-box voucher-item'>
+        <text>发票运费（全国）：</text>
+        <text>{{SysExpressPrice}}元</text>
+      </view>
+      <view class='flex-box voucher-item'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="flex-box radio" wx:for="{{radioData}}">
+            <radio value="{{item.value}}" checked="{{item.checked}}" class='voucher-radio' />
+            <text>{{item.label}}</text>
+          </label>
+        </radio-group>
+      </view>
+      <view class='flex-box voucher-item'>
+        <text>抬头：</text>
+        <input class='invoice-input' placeholder="发票抬头" type='text' value='{{invoiceValue}}' bindinput='bindInvoiceValue'></input>
+      </view>
+      <view class='flex-box voucher-item' wx:if="{{radioValue == 1}}">
+        <text>税务登记号：</text>
+        <input class='register-input' placeholder="开具有效发票的必要信息，可向单位获取" type='text' value='{{registerValue}}' bindinput='bindRegisterValue'></input>
+      </view>
+    </view>
+
+  </view>
+  <view class='voucher-content' wx:if="{{IsHasReal || isVoucher}}">
+    <view class='flex-box voucher-info'>
+      <text class='goods-info-title'>收货信息</text>
+    </view>
+    <view class='flex-box voucher-list-content'>
+      <view class='flex-box voucher-item'>
+        <text>收货地区：</text>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{region}}" range="{{regionData}}" range-key='name'>
+          <view class="address-picker">
+            {{regionData[0][region[0]].name}}{{regionData[1][region[1]].name}}{{regionData[2][region[2]].name}}
+          </view>
+        </picker>
+      </view>
+      <view class='flex-box voucher-item'>
+        <text>收货地址：</text>
+        <input class='input-bug' placeholder="详细地址" type="text" value='{{address}}' bindinput='bindAddressValue' />
+      </view>
+      <view class='flex-box voucher-item'>
+        <text>收件人：</text>
+        <input class='input-bug' placeholder="收件人姓名" type="text" value='{{name}}' bindinput='bindNameValue' />
+      </view>
+      <view class='flex-box voucher-item'>
+        <text>联系方式：</text>
+        <input class='input-bug' placeholder="收件人电话" type="number" value='{{phone}}' bindinput='bindPhoneValue' />
+      </view>
+      <view class='flex-box voucher-item'>
+        <text>邮编：</text>
+        <input class='input-bug' placeholder="邮政编码" type="number" value='{{mailcode}}' bindinput='bindCodeValue' />
+      </view>
+    </view>
+    <view>
+      <checkbox-group bindchange="checkboxChange" class='agreement'>
+        <checkbox class='agreement-checkbox' value="{{isAgreement}}" checked="{{isAgreement}}" />
+        <text>我已阅读并同意</text>
+        <text class='agreement-a' bindtap='toProtocalDetail'>{{protocolTitle}}</text>
+      </checkbox-group>
+    </view>
+  </view>
+</view>
+<view class='bottoms-btn'>
+  <view class='{{isAgreement ? "course-buy-now":"course-cantbuy-now"}}' bindtap='confirmOrder'>确认订单</view>
+  <view class='count-price-info'>
+    <view>共
+      <text>1</text>个产品,共计￥
+      <text>{{totalPrice}}</text>
+    </view>
+  </view>
+</view>

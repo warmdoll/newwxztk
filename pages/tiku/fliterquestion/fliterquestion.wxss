@@ -1,0 +1,47 @@
+view{
+  font-size: 30rpx;
+}
+.ti-type{
+  padding: 50rpx 0;
+  color: #333;
+}
+.flex-item{
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  border-radius: 20px;
+  color: #666;
+  border: 1px solid #dfdfdf;
+}
+.item-btn3{
+  width: 180rpx;
+}
+.item-btn4{
+  width: 150rpx;
+}
+.item-btn3.act,.item-btn4.act{
+  color: #fff;
+  background-color: #58a6f8;
+  
+}
+.footer-btn{
+ height: 100rpx;
+}
+.doti-ico{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding-left:60rpx;
+}
+.doti-ico::before{
+  background-size: 1800rpx 880rpx;
+  width: 40rpx;
+  height:40rpx;
+  left: 0;
+  background-position: -1295rpx -83rpx;
+}

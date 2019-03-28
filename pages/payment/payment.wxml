@@ -1,0 +1,39 @@
+<view class='payment-content'>
+  <view class='payment-order'>
+    <text>订单：</text>
+    <text>{{orderId}}</text>
+  </view>
+  <view class='payment-price'>
+    <text>支付金额：</text>
+    <text>￥{{NeedMoney}}</text>
+  </view>
+  <view class='flex-box payment-paytype'>
+    <text>支付方式：</text>
+    <view class='flex-box payment-paytype-right'>
+      <view class='flex-box payment-paytype-icon'>
+        <view class='payment-paytype-icon-bg'></view>
+      </view>
+      <view class='flex-box payment-paytype-desc'>
+        <view class='payment-paytype-desc-title'>微信安全支付</view>
+        <view class='payment-paytype-desc-text'>支持多种银行卡</view>
+      </view>
+      <view class='right-bottom-icon'></view>
+    </view>
+  </view>
+  <view class='payment-currency'>
+    <text>学币金额：</text>
+    <text>￥{{Hasmoney}}元</text>
+  </view>
+  <view class='payment-confirm-btn' bindtap='confirmPay'>
+    <text>确认支付</text><text class='payment-confirm-btn-desc'>（已抵扣{{Hasmoney}}元学币）</text>
+  </view>
+  <view class='payment-confirm-desc'>
+    优先扣除学币金额
+  </view>
+  <view class='payment-crowdfunding-btn' bindtap='toCrowdfunding'>
+    <text>众筹支付</text>
+  </view>
+  <view class='payment-crowdfunding-desc'>
+    钱包不够，人品来袭!邀请好友帮我筹钱
+  </view>
+</view>

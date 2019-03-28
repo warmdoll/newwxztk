@@ -1,0 +1,37 @@
+
+
+  <block wx:for="{{dataArr}}" wx:if="{{dataArr.length>0}}" wx:key="a">
+  <view class='box-pa'>
+     <view class='highti-content-item flex-box flex-between'>
+        <view class='highfre-title'>{{item.TypeName}}
+          <!-- <text class="fontc6">({{item.ExpireTime}})</text> -->
+        </view>
+        <block wx:if="{{!item.IsBuy}}">
+           <view class='{{item.IsBuy?"":"highti-buy"}} commonico-box' data-ProductsType="{{item.ProductsType}}" data-typename="{{item.TypeName}}" bindtap='gotoBuy'></view>
+        </block>
+       
+    </view>
+    <view class='highti-list-item'>
+       <view class='fontc9'>{{item.description}}</view>
+    </view>
+    <block wx:for="{{item.Chidren}}" wx:if="{{item.Chidren.length>0}}" wx:for-item="v"  wx:key="a">
+      <view class='highti-list flex-box flex-between-middle'>
+        <view class="left-btn">
+          <view class='clearfix'>
+            <view class='highfre-title fl'>{{v.Name}}</view>
+            <view class='tag-btn {{v.ID==1?"tag-btn1":""}} {{v.ID==2?"tag-btn2":""}}  {{v.ID==3?"tag-btn3":""}} fl'>{{v.tileval}}</view>
+          </view>
+          <view class='ti-detail'>{{v.ticount}}</view>
+        </view>
+        <view class='{{item.IsBuy?"highti-do":""}} commonico-box'data-HasStudyCount="{{v.HasStudyCount}}" data-QuestionCount="{{v.QuestionCount}}" data-id="{{v.ID}}" data-typeid="{{item.TypeID}}" bindtap='gototikupaper'></view>
+      </view>
+    </block>
+</view>
+<block wx:if="{{index!==dataArr.length-1}}">
+<view class='line-grey'></view>
+</block>
+</block>
+
+
+ 
+ 

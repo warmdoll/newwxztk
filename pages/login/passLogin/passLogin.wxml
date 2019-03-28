@@ -1,0 +1,19 @@
+<view class="user-top box-pa">
+  <view class='user-img-box'>
+    <image class='user-img' src='../../images/userico.png'></image>
+  </view> 
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <input class="input-box" type='text' placeholder="请输入用户名/手机号码" bindblur='userPboneNum' value='{{phoneValue}}' bindinput='bindPhoneValue'></input>
+    <input class="input-box" type='text' placeholder="请输入密码" password="true" bindblur='userPasswordNum' value='{{password}}' bindinput='bindPassWordValue'></input>
+    <!-- <view class='input-outer betweenplace' wx:if="{{IsShowValidatecode}}">
+      <input class="input-box" type='text' placeholder="请输入图形验证码" value='{{valiDateCode}}' bindinput='bindValiDateCode'></input>
+      <image class='img-code get-imagecode' bindtap='getimageCode' src='{{imgCode}}'></image>
+    </view> -->
+    <button class='button-class' bindtap="passwordLogin">登录</button>
+  </form>
+  <view class='tc tip-text fontc9' bindtap='quickLogin'>还没有账号?
+    <text class='or-text'>快捷登录</text>
+  </view>
+</view>
+<import src="../../template/showToast/showToast.wxml" />
+<template is="showToast" data="{{showToast:showToast}}">  </template>

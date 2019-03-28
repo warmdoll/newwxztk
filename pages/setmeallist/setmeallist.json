@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "套餐列表",
+  "enablePullDownRefresh":true,
+  "onReachBottomDistance":50,
+  "backgroundTextStyle": "dark"
+}

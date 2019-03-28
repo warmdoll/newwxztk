@@ -1,0 +1,98 @@
+.payment-content{
+  padding:10rpx 30rpx 0 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+.payment-order{
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.payment-price{
+  height: 68rpx;
+  line-height: 68rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.payment-paytype{
+  padding: 30rpx 0;
+}
+.payment-paytype-right{
+  width: 452rpx;
+  height: 146rpx;
+  border: 1px solid #f2f2f2;
+  /* border:  1px solid #ff5a5a; */
+  position: relative;
+}
+.payment-paytype-icon{
+  width: 146rpx;
+  height: 146rpx;
+  align-items: center;
+  background-color: #fff;
+  justify-content: center;
+}
+.payment-paytype-icon-bg{
+  width: 86rpx;
+  height: 68rpx;
+  background-size: 2000rpx 1000rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position: -522rpx -98rpx;
+}
+.payment-paytype-desc{
+  flex-direction: column;
+  padding: 25rpx 0;
+}
+.payment-paytype-desc-title{
+  color: #323333;
+  line-height: 46rpx;
+}
+.payment-paytype-desc-text{
+  line-height: 46rpx;
+}
+.right-bottom-icon{
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-size: 2000rpx 1000rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-630rpx -100rpx;
+}
+.payment-currency{
+  margin-top: 22rpx;
+  line-height: 68rpx;
+}
+.payment-confirm-btn{
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 34rpx;
+  background-color: #FF8500;
+  border-radius: 44rpx;
+  text-align: center;
+}
+.payment-confirm-btn-desc{
+  font-size: 28rpx;
+  color: #fff;
+}
+.payment-confirm-desc{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-left: 38rpx;
+  color: #989898;
+}
+.payment-crowdfunding-btn{
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 34rpx;
+  background-color: #58A6F8;
+  border-radius: 44rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}
+.payment-crowdfunding-desc{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-left: 38rpx;
+  color: #989898;
+}

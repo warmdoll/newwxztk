@@ -1,0 +1,101 @@
+/* pages/shoppingCart/shoppingCart.wxss */
+.group-content{
+  padding:0 30rpx;
+  padding-bottom: 100rpx;
+}
+.checkbox-content{
+  padding: 20rpx 0;
+  border-bottom:1rpx solid #f2f2f2;
+  align-items: center;
+}
+.checkbox-item{
+  zoom: 60%;
+  padding-right: 20rpx;
+}
+.setmeal-list{
+  border-radius: 5rpx;
+  flex-direction: column;
+  background: #fff;
+}
+.setmeallist-topleft{
+  width: 306rpx;
+  height: 180rpx;
+  flex-shrink:0;
+}
+.setmeallist-topleft image{
+  width: 306rpx;
+  height: 180rpx;
+}
+.setmeallist-topright{
+  flex-direction: column;
+  flex-direction: -webkit-column;
+  justify-content: space-between;
+  justify-content: -webkit-between;
+  padding:0 20rpx;
+}
+.setmeal-title{
+  font-size: 28rpx;
+}
+.setmeal-prices{
+  font-size: 28rpx;
+  justify-content: space-between;
+}
+.now-price{
+  color: red;
+  font-size: 28rpx;
+}
+.old-price{
+  font-size: 24rpx;
+}
+.setmeal-count{
+  width: 40rpx;
+  height: 40rpx;
+  background: #58A6F8;
+}
+
+.bottoms-content{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #fff;
+  font-size: 24rpx;
+  border-top: 1px solid #f2f2f2;
+  justify-content: space-between;
+}
+.selectall{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24rpx;
+  line-height:100rpx;
+  padding-left: 20rpx;
+}
+.selectall-checkbox{
+  display: inline-block;
+  zoom: 60%;
+}
+.agreement-a{
+  color: #58A6F8;
+}
+.bottoms-btn {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.course-buy-now {
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 100rpx;
+  background-color: #58A6F8;
+  color: #fff;
+  padding: 0 38rpx;
+}
+.count-price-info{
+  font-size: 28rpx;
+  line-height: 100rpx;
+  padding-right: 10rpx;
+}
+.price-color{
+  color: #ff8500;
+}

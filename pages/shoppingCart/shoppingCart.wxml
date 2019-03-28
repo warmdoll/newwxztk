@@ -1,0 +1,40 @@
+<checkbox-group bindchange="checkboxChange" class="group-content">
+  <label class="flex-box checkbox-content" wx:for="{{cartList}}">
+    <checkbox class='checkbox-item' value="{{item.id}}" checked="{{item.checked}}" />
+    <view class='flex-box setmeal-list' bindtap="goCourseDetailPage" data-id="{{item.ProductsId}}">
+      <view class='betweenplace'>
+        <view class='setmeallist-topleft'>
+          <image src="../../images/courseCover.png"></image>
+        </view>
+        <view class='flex-box setmeallist-topright'>
+          <view class="setmeal-title">[签约退费班](二建）建设工程施工管理(单科）</view>
+          <view class="flex-box setmeal-prices">
+            <view class='price-left'>
+              <text class='old-price'>售价： </text>
+              <text class='now-price'>￥3699.00</text>
+            </view>
+            <view class='setmeal-count'></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </label>
+
+</checkbox-group>
+
+<view class='flex-box bottoms-content'>
+  <view class='select-all'>
+    <checkbox-group bindchange="checkboxAllChange" class='selectall'>
+      <checkbox class='selectall-checkbox' value="{{selectAllValue}}" checked="{{isAgreement}}" /> 全选
+    </checkbox-group>
+  </view>
+  <view class='bottoms-btn'>
+    <view class='course-buy-now' bindtap='confirmOrder'>结算</view>
+    <view class='count-price-info'>
+      <view>共计:
+        <text class='price-color'>￥2200.00</text>
+      </view>
+    </view>
+  </view>
+
+</view>

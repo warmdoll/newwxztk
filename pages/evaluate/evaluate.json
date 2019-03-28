@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "评价",
+  "component": true,
+  "usingComponents": {
+    "mystar": "../component/mystar/mystar"
+  }
+}

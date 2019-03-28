@@ -1,0 +1,20 @@
+<view class='agreementlist-bottom-tab-content'>
+  <block wx:for="{{['未签署','已签署']}}" wx:key="id">
+    <view class='agreementlist-bottom-tab-item {{currentType == index ? "agreementlist-bottom-tab-item-active":""}}' bindtap='onBottomTabTap' data-index="{{index}}">
+      <view class='agreementlist-bottom-tab-item-name'>{{item}}</view>
+    </view>
+  </block>
+</view>
+<view class='agreementlist-content'>
+  <block wx:for="{{ currentType == 0 ? noSingList : signList}}">
+    <view class='agreementlist-content-item' data-id='{{item.Id}}' data-url="{{item.Url}}" bindtap='toPdfDetal'>
+      <view class='agreementlist-content-title'>{{item.Title}}</view>
+      <view class='agreementlist-content-icon'></view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{(currentType == 0 && noSingList.length == 0) || (currentType == 1 && signList.length == 0)}}" class='flex-box no-data'>
+  <image src='../../images/noData.png' class='no-data-img'></image>
+  <view class='no-data-text'>暂无数据</view>
+</view>
+<view class='onekey-agreement-btn' wx:if="{{currentType == 0 && noSingList.length > 0}}" bindtap='onkeyAgreement'>一键签署</view>

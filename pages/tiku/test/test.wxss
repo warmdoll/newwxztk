@@ -1,0 +1,153 @@
+.container{
+  padding-top: 0;
+}
+.tiku-top{
+  padding:40rpx 0;
+  border-bottom: 1px solid  #f2f2f2;
+}
+.live-btn{
+display: flex;
+align-items: center;
+padding-left:70rpx;
+}
+.live-btn.commonico::before{
+   width: 50rpx;
+  height: 65rpx;
+   background-position: -682rpx -100rpx;
+   background-size:2000rpx 600px;
+   vertical-align: middle;
+   top: -13rpx;
+   left: 15rpx;
+}
+.ti-box{
+  padding:20rpx;
+}
+.ti-title{
+  color: #333;
+  line-height:50rpx;
+  margin-bottom:80rpx;
+}
+.daan-ico{
+  color: #58a6f8;
+  border: 1px solid #58a6f8;
+  height:66rpx;
+  width: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+  border-radius: 50%;
+}
+.ti-daan-list.act .daan-ico{
+  background-color:  #58a6f8;
+  color: #fff;
+}
+.swiper-outerbox{
+  position: relative;
+}
+
+.daan-content{
+  padding-left:30rpx;
+  line-height: 66rpx;
+  width:400rpx;
+}
+.item-box{
+  width: 400px;
+}
+.swiper-box {
+  width: 2000px;
+  position: absolute;
+  left: 0;
+}
+.ti-daan-list{
+  margin-bottom: 50rpx;
+
+}
+.padd-left{
+  margin-left: 50rpx;
+}
+.analysis-list{
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 20rpx 0;
+}
+.change-btn{
+  width: 90%;
+  background-color: #58a6f8;
+  border-radius: 40rpx;
+  text-align: center;
+  color:#fff;
+  padding: 20rpx 0;
+  font-size: 34rpx;
+}
+.change-btn-lf{
+  border-right: 1px solid #fff;
+  width: 50%;
+  box-sizing: border-box;
+}
+.change-btn-rt{
+  border-left: 1px solid #fff;
+  width: 50%;
+   box-sizing: border-box;
+}
+.footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 20rpx;
+  border-top: 1px solid #b5b5b5;
+  z-index: 1000;
+  background-color: #fff;
+  left: 0;
+}
+.commoico-box{
+   width:48rpx;
+  height:50rpx;
+    top:10rpx;
+  left:-30rpx;
+  margin: 10rpx auto;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size:2000rpx 600px;
+   vertical-align:middle;
+}
+.module-list-daan{
+  background-position:-735rpx -100rpx;
+}
+.module-list-share{
+  background-position:-845rpx -100rpx;
+}
+.module-list-error{
+   background-position:-900rpx -100rpx;
+}
+.module-list.flex-item1{
+  box-sizing: border-box;
+  width: 33.33%;
+}
+.img-class{
+  width: 370rpx;
+  height: 201rpx;
+  margin-bottom: 100rpx;
+}
+.nodata-box{
+  top:35%;
+  font-size: 40rpx;
+  color: #333;
+}
+.shadow-box{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.shadow-box.stop{
+  display: none;
+}
+.item-width{
+  width: 300px;
+  float: left;
+}
+.allitem-width{
+  width: 1000%;
+}

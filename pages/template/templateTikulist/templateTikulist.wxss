@@ -1,0 +1,65 @@
+.tab-flex{
+  display: flex;
+}
+.tab-item{
+  flex:1;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
+    font-size: 24rpx;
+    padding: 30rpx 0;
+    color: #333;
+}
+.tab-item.act{
+  border-bottom: 1px solid #58a6f8;
+  color: #58a6f8;
+}
+.doti-btn{
+  border: 1px solid #58a6f8;
+  color: #58a6f8;
+  padding: 0 10rpx;
+  border-radius: 3px;
+}
+.doperson-num{
+  padding-left: 30rpx;
+}
+.analysis-list-item{
+  padding: 0 20rpx;
+}
+.ti_everyday_content{
+  padding-bottom: 20rpx;
+  font-size: 26rpx;
+}
+.ti-data{
+  color: #666;
+  background-color: #f4f4f4;
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+}
+.ti-title{
+  padding:20rpx 0 10rpx 20rpx;
+  position: relative;
+}
+.ti-title::before{
+ position: absolute;
+ content:'';
+ width: 0;
+ height: 0;
+ border-top: 5px solid transparent;
+ border-left: 10rpx solid #333;
+ border-bottom: 10rpx solid transparent;
+ left: 0rpx;
+ top: 27rpx;
+ }
+.sharebtn-box {
+margin:0;
+line-height:1.5;
+border:1px solid #fff;
+outline:none;
+padding:0;
+right:0rpx;
+float:right;
+font-size: 24rpx;
+
+}

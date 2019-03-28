@@ -1,0 +1,66 @@
+.highfre-title{
+  font-size: 28rpx;
+  color: #666;
+}
+.commonico-box{
+   width: 40rpx;
+    top: 10rpx;
+  left: -20rpx;
+}
+.highti-buy.commonico-box{
+  background-position: -1080rpx -1rpx;
+  height: 40rpx;
+}
+.highti-look.commonico-box{
+  background-position: -711rpx -90rpx;
+  height: 30rpx;
+}
+.highti-do.commonico-box{
+  background-position: -1238rpx -90rpx;
+  width: 55rppx;
+  height: 50rpx;
+}
+.highti-content-item{
+  padding: 30rpx 0 30rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.highti-list-item{
+  padding: 20rpx 0 20rpx 0;
+  line-height: 40rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.highti-list{
+  padding: 20rpx 0 20rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.tag-btn{
+  color: #fff;
+  font-size: 24rpx;
+  padding: 0rpx 20rpx;
+ 
+  border-radius: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-left: 20rpx;
+}
+.tag-btn1{
+   background-color: #e93a3f;
+}
+.tag-btn2{
+   background-color: #ff8500;
+}
+.tag-btn3{
+   background-color: #ffcc33;
+}
+.ti-detail{
+  color:#58a6f8;
+  font-size: 24rpx;
+  padding-top: 10rpx;
+}
+.line-grey{
+  width: 100%;
+  height: 10rpx;
+  background-color: #f2f2f2;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}

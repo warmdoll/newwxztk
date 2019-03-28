@@ -1,0 +1,161 @@
+/* pages/crowdfundingPayment/crowdfundingPayment.wxss */
+.crowdfunding-content{
+  font-size: 28rpx;
+  color: #323333;
+  padding: 0 26rpx 0 30rpx;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.remaining-time-content{
+  justify-content: space-between;
+  align-items: center;
+}
+.remaining-time-right{
+  align-items: center;
+}
+.weui-input{
+  font-size: 28rpx;
+  color: #323333;
+}
+.right-icon{
+  height: 30rpx;
+  width: 22rpx;
+  margin-left: 24rpx;
+  background-size: 2000rpx 1000rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-406rpx 0;
+}
+.remaining-time{
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.who-anm-i{
+  height: 90rpx;
+  line-height: 90rpx;
+  align-items: center;
+}
+.br{
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 10rpx;
+}
+.pass-message-title{
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.who-title{
+  margin-right: 40rpx;
+}
+.who-input{
+  border: 1px solid #f2f2f2;
+  width: 530rpx;
+  height: 50rpx;
+  padding: 0 20rpx;
+  line-height: 40rpx;
+}
+.pass-message-textarea{
+  display: inline-block;
+  border: 1px solid #f2f2f2;
+  width: 100%;
+  height: 180rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.crowdfunding-btn{
+  margin: 36rpx 0;
+  width: 100%;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background-color: #58A6F8;
+  text-align: center;
+  color: #ffffff;
+  font-size: 34rpx;
+  line-height: 88rpx;
+}
+.cantcrowdfunding-btn{
+  margin: 36rpx 0;
+  width: 100%;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background-color: #d5d5d5;
+  text-align: center;
+  color: #ffffff;
+  font-size: 34rpx;
+  line-height: 88rpx;
+}
+.agreement{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24rpx;
+}
+.agreement-checkbox{
+  display: inline-block;
+  zoom: 60%;
+}
+.agreement-a{
+  color: #58A6F8;
+}
+.explain{
+  margin-top: 66rpx;
+}
+.explain-tab{
+  justify-content: space-around;
+}
+.explain-tab-item{
+  flex-direction: column;
+  align-items: center;
+}
+.explain-tab-img{
+  width:90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-top: 34rpx;
+  margin-bottom: 22rpx;
+  overflow: hidden;
+}
+.explain-tab-img1{
+  background-size: 2000rpx 1000rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-108rpx -98rpx;
+}
+.explain-tab-img2{
+  background-size: 2000rpx 1000rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-212rpx -98rpx;
+}
+.explain-tab-img3{
+  background-size: 2000rpx 1000rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-310rpx -98rpx;
+}
+.explain-tab-img4{
+  background-size: 2000rpx 1000rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-414rpx -98rpx;
+}
+.explain-tab{
+  margin-bottom: 36rpx;
+}
+.explain-details{
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 42rpx;
+  padding-bottom: 36rpx;
+}
+.share-modile{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#999999;
+  opacity:.8;
+  top:0;
+  text-align:center;
+}
+.share-modile-img{
+  width:243px;
+height:100px;
+display:inline-block;
+overflow:hidden;
+
+}

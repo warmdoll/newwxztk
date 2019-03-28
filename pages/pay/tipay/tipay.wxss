@@ -1,0 +1,80 @@
+@import '../../template/showToast/showToast.wxss';  
+view{
+    font-size: 28rpx;
+}
+.pay-serv{
+  padding: 20rpx 0;
+  color: #666;
+}
+.pay-serv-title{
+  color: #333;
+  padding: 20rpx 0 30rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.buy-time{
+  padding: 20rpx 0;
+}
+.buy-time .flex-item1{
+  color: #333;
+  font-size: 30rpx;
+  border: 1px solid #f2f2f2;
+  padding: 20rpx 5rpx;
+  margin: 0 20rpx;
+  border-radius: 5px;
+}
+.buy-time .flex-item1.act{
+  color:  #ff8500;
+  border: 1px solid  #ff8500; 
+  background-color: #ffefde;
+}
+.yello-color{
+  color: #ff8500;
+}
+.pa-tb{
+  padding: 30rpx 0 30rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.old-price{
+  color: #999;
+  text-decoration: line-through;
+  margin: 0 10rpx;
+}
+.now-price{
+  color: #ff8500;
+}
+.pay-btn{
+  width: 100%;
+  padding: 20rpx 0;
+  margin: 30rpx 0;
+  border-radius: 20px;
+  color: #fff;
+}
+.confirm-btn{
+  margin-top: 70rpx;
+  background-color: #ff8500;
+}
+.crowdfunding-btn{
+  background-color: #58a6f8;
+}
+.xiyi-text{
+  color: #58a6f8;
+}
+.footer-btn{
+  background-color: #fff;
+  color: #999;
+  padding-bottom: 40rpx;
+}
+.validity-date{
+  color: #999;
+}
+.price-box{
+  color: #666;
+
+}
+.cantconfirm-btn{
+  margin-top:70rpx;
+  background-color:#d5d5d5;
+}
+.cancrowdfunding-btn{
+  background-color: #d5d5d5;
+}

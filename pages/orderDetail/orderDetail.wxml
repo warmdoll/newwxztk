@@ -1,0 +1,134 @@
+<view class='flex-box orderDetail-top-content'>
+  <view class='flex-box orderDetail-status' wx:if="{{orderInfo.OrderType == 2}}">
+    <view>订单状态:
+      <text class='orderDetail-status-info'>{{formatStatusToCNFromCrowdfundingType[orderInfo.OrderStatus]}}</text>
+    </view>
+    <view>
+      <text class='orderDetail-status-btn btn-red' wx:if="{{orderInfo.FundStatus == 1 || orderInfo.FundStatus == 3}}" catchtap='payTheBalance'>支付余款</text>
+    </view>
+  </view>
+  <view class='flex-box orderDetail-status' wx:else>
+    <view>订单状态:
+      <text class='orderDetail-status-info'>{{formatStatusToCNFromOrdinaryType[orderInfo.OrderStatus]}}</text>
+    </view>
+    <view>
+      <text class='orderDetail-status-btn btn-red' wx:if="{{orderInfo.OrderType ==1 && orderInfo.OrderStatus ==0}}" catchtap='goPaymentPage'>去付款</text>
+    </view>
+  </view>
+  <view class='orderDetail-progress' wx:if="{{orderInfo.OrderType == 2 || (orderInfo.OrderType ==1 && orderInfo.OrderStatus != 2)}}">
+    <progress percent="{{orderInfo.Progress}}" activeColor="#6591FC" class='orderDetail-progress' />
+  </view>
+  <view class='flex-box orderDetail-crowdfunding-info' wx:if="{{orderInfo.OrderType == 2}}">
+    <view>已筹到
+      <text class='orderDetail-crowdfunding-price'>{{orderInfo.Funded}}</text>元</view>
+    <view class='orderDetail-crowdfunding-time'>{{orderInfo.ExpireInfo}}</view>
+    <view class='orderDetail-crowdfunding-prople'>共
+      <text>{{orderInfo.SupportCount}}</text>人支持</view>
+  </view>
+</view>
+<view class='orderDetail'>
+  <view class='orderDetail-content'>
+    <block wx:for="{{orderInfo.Products}}" wx:key="{{index}}">
+      <view class='flex-box setmeal-list'>
+        <view class='flex-box'>
+          <view class='setmeallist-topleft'>
+            <image src="{{item.Img}}" wx:if="{{item.Img}}"></image>
+            <image src="../../images/courseCover.png" wx:else></image>
+          </view>
+          <view class='flex-box setmeallist-topright'>
+            <view class="setmeal-title">{{item.Title}}</view>
+            <view class="flex-box setmeal-content-info">
+              <view class='setmeal-content-info-price'>￥{{item.Price}}</view>
+              <view class='setmeal-content-info-count'>X{{item.Count}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='flex-box orderDetail-coursetotal'>
+  <view class='flex-box orderDetail-coursetotal-item'>
+    <text>商品数量</text>
+    <text>{{orderInfo.ProductsCount}}个</text>
+  </view>
+  <view class='flex-box orderDetail-coursetotal-item'>
+    <text>商品总价</text>
+    <text>￥{{orderInfo.ProductsPrice}}</text>
+  </view>
+  <view class='flex-box orderDetail-coursetotal-item'>
+    <text>运费（物流名称）</text>
+    <text>￥{{orderInfo.SysExpressPrice}}</text>
+  </view>
+  <view class='flex-box orderDetail-coursetotal-item'>
+    <text>实付款</text>
+    <text>￥{{orderInfo.ProductsPrice}}</text>
+  </view>
+  <view class='flex-box orderDetail-status-btngroup'>
+    <view class='orderDetail-status-btn btn-grey' wx:if="{{orderInfo.OrderStatus==1 && !orderInfo.Products[0].IsComment && (orderInfo.Products[0].ProductsType == 1 || orderInfo.Products[0].ProductsType == 6 || orderInfo.Products[0].ProductsType == 7 || orderInfo.Products[0].ProductsType == 8 || orderInfo.Products[0].ProductsType == 9)}}" data-productsid='{{orderInfo.Products[0].ProductsId}}' catchtap='toEvaluate'>去评价</view>
+    <view class='orderDetail-status-btn btn-red' wx:if="{{orderInfo.OrderType ==1 && orderInfo.OrderStatus ==0}}" catchtap='goPaymentPage'>去付款</view>
+    <view class='orderDetail-status-btn btn-red' wx:if="{{orderInfo.OrderType ==1 && orderInfo.OrderStatus ==2}}" catchtap='recoveryOrder'>恢复订单</view>
+    <view class='orderDetail-status-btn btn-grey' wx:if="{{orderInfo.OrderType ==1 && orderInfo.OrderStatus ==0}}" catchtap='cancelOrder'>取消订单</view>
+    <view class='orderDetail-status-btn btn-red' wx:if="{{orderInfo.OrderType == 2 && orderInfo.FundStatus != 2}}" catchtap='payTheBalance'>支付余款</view>
+    <view class='orderDetail-status-btn btn-grey' wx:if="{{orderInfo.OrderType == 2 && orderInfo.FundStatus == 1}}">
+      <text>找人众筹</text>
+      <button open-type="share" class='crowdfunding-btn'></button>
+    </view>
+  </view>
+</view>
+<view class='base-line'></view>
+<view class='flex-box orderDetail-address' wx:if="{{orderInfo.OrderType ==1 && orderInfo.OrderStatus != 2}}">
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>收货地址：</text>
+    <text>{{orderInfo.Address}}</text>
+  </view>
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>收件人：</text>
+    <text>{{orderInfo.Consignee}}</text>
+  </view>
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>联系电话：</text>
+    <text>{{orderInfo.Mobile}}</text>
+  </view>
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>邮编：</text>
+    <text>{{orderInfo.Postcode}}</text>
+  </view>
+</view>
+<view class='base-line'></view>
+<view class='flex-box orderDetail-address'>
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>订单编号：</text>
+    <text>{{orderInfo.OrderNumber}}</text>
+  </view>
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>创建时间：</text>
+    <text>{{orderInfo.CreateTime}}</text>
+  </view>
+  <!-- <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>结束时间：</text>
+    <text>{{orderInfo.ExpireInfo}}</text>
+  </view> -->
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>发票：</text>
+    <text>{{orderInfo.ReceiptType}}</text>
+  </view>
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>抬头：</text>
+    <text>{{orderInfo.ReceiptTitle}}</text>
+  </view>
+  <view class='flex-box orderDetail-address-item'>
+    <text class='orderDetail-address-item-first'>参与人：</text>
+  </view>
+  <view class='flex-box orderDetail-SupportList'>
+    <block wx:for="{{orderInfo.SupportList}}" wx:key="{{index}}">
+    <view class='flex-box orderDetail-left'>
+      <image wx:if="item.HeadPic" src='{{item.HeadPic}}' class='orderDetail-left-pic'></image>
+      <image wx:else src='../../images/defaultPic.png' class='orderDetail-left-pic'></image>
+      <view class='orderDetail-left-name'>{{item.UserInfo}}</view>
+    </view>
+    <view class='flex-box orderDetail-right'>{{item.TimeInfo}}</view>
+    </block>
+  </view>
+</view>
+<view class='base-line'></view>

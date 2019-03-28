@@ -1,0 +1,41 @@
+<view class='outer-height' id='outerHeight'>
+<view class='tab-fixed'>
+  <view class='change-btn tc clearfix' id="tabHeight">
+    <view class='change-btn-item {{currentTab==0?"act":""}}  tc fl' catchtap="swichNav" data-current="0">按顺序         </view>
+    <view class='change-btn-item tc fl {{currentTab==1?"act":""}}' catchtap="swichNav" data-current="1">按题型          </view>
+  </view>
+</view>
+  <view class='analysis-list'>
+    <swiper current="{{currentTab}}"   duration="200" bindchange='bindChange'>
+        <swiper-item> 
+          <view class='analysis-list-item fontc6 clearfix swiper-item1'>
+            <!-- 解析转html -->
+            <block wx:if="{{tiNumber.length>0}}" wx:for="{{tiNumber}}" wx:key="">
+            <view class='ti-box' catchtap='clickBtn' data-tinum="{{item.tiNum}}">
+               <view class='ti-btn {{item.mySelected==item.rightDaan?"right-act":""}} {{item.mySelected!==""&&item.mySelected!=item.rightDaan?"wrong-act":""}}'>{{item.tiNum}}</view>
+            </view>
+            </block>
+          </view>
+        </swiper-item>
+        <swiper-item>
+         <!-- // 单项选择题 = 1, 多项选择题 = 2, 不定项选择题 = 3, 判断题 = 4, 填空题 = 6, 简述题 = 7, 报关题 = 8, -->
+          <view class='analysis-list-item fontc6 swiper-item2'>
+            <block wx:if="{{lastTidata.length>0}}" wx:for="{{lastTidata}}" wx:key="">
+              <view class='ti-title' wx:if="{{item.tiArr.length>0}}">{{item.QuestionType}}</view>
+              <view class='clearfix'>
+              <block wx:if="{{item.tiArr.length>0}}" wx:for="{{item.tiArr}}"  wx:for-item="tiObj" wx:key="a">
+                <view class='ti-box' catchtap='clickBtn' data-tinum="{{tiObj.tiNum}}">
+                  <view class='ti-btn {{tiObj.mySelected==tiObj.rightDaan?"right-act":""}} {{tiObj.mySelected!==""&&tiObj.mySelected!=tiObj.rightDaan?"wrong-act":""}}'>{{tiObj.tiNum}}</view>
+                </view>
+              </block>
+              </view>
+            </block>
+          </view>
+        </swiper-item>
+    </swiper>
+  </view>
+  <view class='footer-btn clearfix' id='footerHeight'>
+    <view class='footer-item' bindtap='resetTest'>重新测试</view>
+    <view class='footer-item' bindtap='testResault'>交卷</view>
+  </view>
+</view>

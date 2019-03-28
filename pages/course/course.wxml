@@ -1,0 +1,56 @@
+<view class='module-box  common-bgwhite' >
+<!--广告位轮播 -->
+    <block wx:if="{{advObj.length==1}}">
+       <view wx:for="{{advObj}}"  wx:key="h"> 
+                  <view class='flexbox common-flexrow' mode="aspectFill" data-url="{{item.url}}" catchtap='bindtapad'>
+                      <image src='{{item.img}}'></image>
+                  </view>
+        </view>
+    </block>
+    <block wx:if="{{advObj.length>1}}">
+          <swiper current="{{currentTab}}" indicator-dots="true" indicator-color="#dbdbdb" indicator-active-color="#58a6f8"  duration="1000" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
+              <swiper-item wx:for="{{advObj}}"  wx:key="h"> 
+                  <view class='flexbox common-flexrow' mode="aspectFill" data-url="{{item.url}}" catchtap='bindtapad'>
+                    <view class='flex-list' >
+                      <view class='flex-item'>
+                        <image src='{{item.img}}'></image>
+                      </view>
+                    </view>
+                </view>
+            </swiper-item>  
+          </swiper> 
+    </block>
+      <!--报名选课 高效提分  -->
+      <view class='tc fontc6 lianxi-title fontsize28 course-item-title'>
+        <text class="h-line">—</text>报名选课 <text class='circle-ico'></text> 套餐班型<text class="h-line">—</text>
+      </view>
+      <view class='tc fontc9'>高效提分、科学授课、通关之选</view>
+      <!--课程列表  -->
+      <view class='course-box'>
+        <block wx:for="{{courseListObj.SysClassTaocan}}" wx:if="{{!noData}}" wx:key="a">
+           <view class='course-list flex-box' data-taocantype="{{item.TaocanType}}"  bindtap='gotodetailList'>
+    
+         
+              <view class='flex-item1 course-list_item'>
+               <image class='course-list_img' src="{{item.Img}}"></image>
+           
+              </view>
+              <view class='flex-item1 course-list_item list-item_rt'>
+                <view class='fontc324 overtwo-circle'>{{item.Title}}</view>
+                <view class='fontc9 course-list_detail overtwo-circle'>{{item.Discription}}</view>
+                <text class='course-fontyell'>{{item.PriceRange}}</text>
+                <view class='flex-box flex-between course-list-bottom'>
+                  <text class='fontcbl fonts24'>{{item.StudyCount}}人报名</text>
+                  <view class='bm-btn'>报名试听</view>
+                </view>
+              </view>
+            </view>
+        </block>
+        <block wx:if="{{noData}}">
+             <view class=''>
+                <image class='img-class' src='../images/no-data.png'></image>
+                <view class='fontc9 tc'>暂无数据</view>
+              </view>
+        </block>
+      </view>
+</view>

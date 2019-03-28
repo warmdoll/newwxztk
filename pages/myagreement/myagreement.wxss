@@ -1,0 +1,200 @@
+/* 底部tab样式开始 */
+
+.agreementlist-bottom-tab-content {
+  position: fixed;
+  height: 100rpx;
+  font-size: 34rpx;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #fff;
+  z-index: 999;
+}
+
+.agreementlist-bottom-tab-item {
+  width: 50%;
+  color: #c7c7cb;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1rpx solid #d0d0d7;
+}
+
+.agreementlist-bottom-tab-item.agreementlist-bottom-tab-item-active {
+  color: #6591fc;
+  border-bottom: 2px solid #6591fc;
+}
+
+.agreementlist-bottom-tab-item-name {
+  width: 100%;
+  height: 34rpx;
+  line-height: 34rpx;
+  text-align: center;
+  border-left: 1px solid #d0d0d7;
+}
+
+.agreementlist-bottom-tab-item:nth-child(1) > .agreementlist-bottom-tab-item-name {
+  border-left: none;
+}
+
+/* 底部tab样式end */
+
+/* 头部tab样式开始 */
+
+.agreementlist-ordinary-content {
+  position: fixed;
+  height: 70rpx;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  box-sizing: border-box;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #fff;
+}
+
+.agreementlist-ordinary-tab-item {
+  width: 50%;
+  color: #c7c7cb;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agreementlist-ordinary-tab-item.agreementlist-ordinary-tab-item-active {
+  color: #6591fc;
+  border-bottom: 2px solid #6591fc;
+}
+
+.agreementlist-ordinary-tab-item-name {
+  width: 100%;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+}
+
+.agreementlist-ordinary-tab-item-name {
+  border-left: 1px solid #d0d0d7;
+}
+
+.agreementlist-ordinary-tab-item:nth-child(1) > .agreementlist-ordinary-tab-item-name {
+  border-left: none;
+}
+
+.agreementlist-crowdfunding-content {
+  position: fixed;
+  height: 70rpx;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  box-sizing: border-box;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #fff;
+}
+
+.agreementlist-crowdfunding-tab-item {
+  width: 50%;
+  color: #c7c7cb;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agreementlist-crowdfunding-tab-item.agreementlist-crowdfunding-tab-item-active {
+  color: #6591fc;
+  border-bottom: 2px solid #6591fc;
+}
+
+.agreementlist-crowdfunding-tab-item-name {
+  width: 100%;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+}
+
+.agreementlist-crowdfunding-tab-item-name {
+  border-left: 1px solid #d0d0d7;
+}
+
+.agreementlist-crowdfunding-tab-item:nth-child(1) > .agreementlist-crowdfunding-tab-item-name {
+  border-left: none;
+}
+
+/* 头部tab样式end */
+
+/* 订单列表内容样式开始 */
+
+.agreementlist-content {
+  display: flex;
+  flex-direction: column;
+  padding: 100rpx 30rpx 80rpx 30rpx;
+}
+.agreementlist-content-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-top:1px solid #f2f2f2;
+  padding:10rpx;
+}
+.agreementlist-content-item:nth-of-type(0){
+  border: none;
+}
+.agreementlist-content-title{
+  max-width: 620rpx;
+  color: #999;
+  font-size:28rpx;
+}
+.agreementlist-content-icon{
+  height: 48rpx;
+  width: 44rpx;
+  margin-right: 16rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size: 2000rpx 600px;
+  background-position: -381rpx 0rpx;
+}
+.agreementlist-items {
+  font-size: 28rpx;
+  padding-bottom: 10rpx;
+  background-color: #fff;
+}
+.onekey-agreement-btn{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  background: #6591fc;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+.no-data{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:#F5F6F7; 
+  z-index: 0;
+  top: 0;
+}
+.no-data-img{
+  width: 371rpx;
+  height: 202rpx;
+}
+.no-data-text{
+  margin-top: 86rpx;
+  color: #D5D5D5;
+}

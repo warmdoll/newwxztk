@@ -1,0 +1,16 @@
+
+<template  name="list">
+<view class='list-ul' >
+<!--这是第一级-->
+  <view class='list-li' data-id='{{Id}}'   bindtap='toggleclcik'   data-current="0" bindtap='listopen'>
+  
+    <!--这是第二级-->
+      <block wx:if="{{getChapter.Data.ClassHoursList.length>0&&getChapter.Data.ClassHoursList!==null}}"  wx:for="{{getChapter.Data.ClassHoursList}}" wx:for-item="item" wx:key="key">
+        <import  src="chapterList1"/>
+        <template  is="list1" data="{{...item}}"/>
+      </block>
+    <!-- <import  src="2"/>
+     <template is="list2" data='{{children}}'/> -->
+  </view>
+</view>
+</template>

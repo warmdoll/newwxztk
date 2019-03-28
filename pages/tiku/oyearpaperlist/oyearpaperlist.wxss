@@ -1,0 +1,2 @@
+@import "../../template/templateTikulist/templateTikulist.wxss";
+@import '../../template/showDialog/showDialog.wxss';

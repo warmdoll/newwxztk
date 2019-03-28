@@ -1,0 +1,23 @@
+<view class="box-pa">
+  <view class='ti-type'> 题型</view>
+  <view class='ti-content-item flex-box flex-between'>
+    <block wx:for="{{typeObj.tiType}}" wx:key="a">
+       <view class='flex-item item-btn3  {{item.status?"act":""}}' data-item="{{index}}" data-type="tiType" data-QuestionType="{{item.QuestionType}}" bindtap='clickType'>{{item.title}}</view>
+    </block>
+  </view>
+   <view class='ti-type'> 选择</view>
+  <view class='ti-content-item flex-box flex-between'>
+     <block wx:for="{{typeObj.tiStatus}}" wx:key="a">
+      <view class='flex-item item-btn4   {{item.status?"act":""}}' data-item="{{index}}" data-type="tiStatus" data-DoState="{{item.DoState}}" bindtap='clickType'>{{item.title}}</view>
+  </block>
+  </view>
+   <view class='ti-type'>题量</view>
+  <view class='ti-content-item flex-box flex-between'>
+  <block wx:for="{{typeObj.tiNum}}" wx:key="a">
+      <view class='flex-item item-btn3   {{item.status?"act":""}}' data-item="{{index}}" data-type="tiNum" data-QuestionCount="{{item.QuestionCount}}" bindtap='clickType'>{{item.title}}</view>
+  </block>
+  </view>
+</view>
+<view class='footer-btn'  bindtap='jumpDatipage'>
+ <view class='doti-ico commonico'>开始答题</view>
+</view>

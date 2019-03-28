@@ -1,0 +1,86 @@
+<!-- tab标签切换 -->
+<block wx:if="{{SingleSubject.lenght>0&&WholeSubject.length>0}}">
+  <view class='tab-box clearfix'>
+    <view class='fl tab-item tc' id='the-id'>
+      <text class="text-item {{currentTab==0 ? 'act' : ''}}" catchtap="swichNav" data-current="0">单科        </text>
+    </view>
+    <view class='fl tab-item tc'>
+      <text class="text-item {{currentTab==1 ? 'act' : ''}}" catchtap="swichNav" data-current="1">全科       </text>
+    </view>
+  </view>
+</block>
+<!--tab标签切换内容 -->
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style='margin-top:{{SingleSubject.length>0&&WholeSubject.length>0?"100rpx":"0rpx"}}'>
+<block wx:if="{{SingleSubject.length>0}}">
+  <swiper-item  class="swiper-item-box">
+    <view class='live-ul'>
+      <view class='upgrade-top'>
+        <text class='upgrade-top-rt'>一次购买永久免费</text>
+        <text class='upgrade-top-lf'>海量试题无限更新，一次购买即享永久服务</text>
+      </view>
+      <view class='flex-between check-box clearfix'>
+        <checkbox-group bindchange="checkboxChange" class="clearfix">
+          <label class="checkbox" wx:for="{{titypeArr}}" wx:key="a">
+            <checkbox value="{{item.id}}" checked="true" disabled="true"/>{{item.value}}
+          </label>
+        </checkbox-group>
+      </view>
+      <!-- <view class='add-wex'>加微信优惠购买</view> -->
+    </view>
+    <view class='line-grey'></view> 
+    <view class='products-box'>
+        <view class='products-list-top'>{{SingleSubjectText}}</view>  
+        <block wx:for="{{SingleSubject}}" wx:key="a">
+          <view class='flex-box flex-between live-list-box {{item.IsSelected?"act":""}}' bindtap='clickSubjectlist'  data-type="1" data-currentprice="{{item.CurrentPrice}}" data-price="{{item.Price}}" data-productsid="{{item.ProductsId}}">
+            <view class='flex-item'>
+              <view class='live-title over-circle' >{{item.ProductsTitle}}</view>
+            </view>
+            <view class='flex-item'>
+              <view class='ye-color'>￥{{item.CurrentPrice}}</view>
+            </view>
+          </view>
+        </block>
+     </view>
+
+  </swiper-item>
+</block>  
+<block wx:if="{{WholeSubject.length>0}}">
+  <swiper-item class="swiper-item-box">
+     <view class='live-ul'>
+      <view class='upgrade-top'>
+        <text class='upgrade-top-rt'>一次购买永久免费</text>
+        <text class='upgrade-top-lf'>海量试题无限更新，一次购买即享永久服务</text>
+      </view>
+      <view class='flex-between check-box clearfix'>
+        <checkbox-group bindchange="checkboxChange" class="clearfix">
+          <label class="checkbox" wx:for="{{titypeArr}}" wx:key="a">
+            <checkbox value="{{item.id}}" checked="true" disabled="true"/>{{item.value}}
+          </label>
+        </checkbox-group>
+      </view>
+      <!-- <view class='add-wex'>加微信优惠购买</view> -->
+    </view>
+    <view class='line-grey'></view> 
+    <view class='products-box'>
+      <view class='products-list-top'>{{wholeSubjectText}}</view>  
+        <block wx:for="{{WholeSubject}}" wx:key="a">
+          <view class='flex-box flex-between live-list-box  {{item.IsSelected?"act":""}}' bindtap='clickSubjectlist' data-type="2"  data-currentprice="{{item.CurrentPrice}}" data-price="{{item.Price}}" data-productsid="{{item.ProductsId}}">
+            <view class='flex-item'>
+              <view class='live-title over-circle' >{{item.ProductsTitle}}</view>
+            </view>
+            <view class='flex-item'>
+              <view class='ye-color'>￥{{item.Price}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+  </swiper-item>
+</block>
+</swiper>
+<view class='footer flex-box flex-between'>
+  <view class='price-box flex-item'>
+    <text class='old-price'>原价￥{{oldPrice}}</text>现价<text class='now-price ye-color'>￥{{CurrentPrice}}</text>
+  </view>
+  <view class='buy-btn flex-item' bindtap='buyProducts'>购买</view>
+</view>

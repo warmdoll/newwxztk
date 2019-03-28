@@ -1,0 +1,29 @@
+<template name="tikulist">
+<view class='ti-data'>{{nowDay}}</view>
+<view class='analysis-list-item fontc6'>
+  <!-- 解析转html -->
+    <view class='ti_everyday_content' data-unlockWay='{{UnlockWay}}' data-id="{{tiID}}"  data-tiday="{{Day}}" data-exameid="{{ExamID}}" data-subjectid="{{SubjectID}}" bindtap='gotonaxtpage'>
+      <view class='ti-content-item-top'>
+        <view class='ti-title overtwo-circl'>
+          {{tiTitle}}
+        </view>
+      </view>
+      <view class='ti-content-item flex-box flex-between'>
+        <view class='fontc9 doperson-num'>{{DoCount}}人做过</view>
+        <block wx:if="{{UnlockWay==1}}">
+          <button class="sharebtn-box" open-type='share' data-id="{{tiID}}">
+            <view class='doti-btn'>分享</view>
+           </button>
+        </block>
+        <block wx:if="{{UnlockWay==3}}">
+           <view class='doti-btn'>购买</view>
+        </block>
+        <block wx:if="{{UnlockWay==0}}">
+          
+            <view class='doti-btn'>答题</view>
+          
+        </block>
+      </view>
+    </view>
+</view>
+</template>

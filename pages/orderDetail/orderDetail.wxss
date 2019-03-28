@@ -1,0 +1,170 @@
+/* pages/orderDetail/orderDetail.wxss */
+.orderDetail-top-content{
+  padding: 0 22rpx;
+  font-size: 28rpx;
+  flex-direction: column;
+}
+.orderDetail-status{
+  height: 86rpx;
+  line-height: 86rpx;
+  justify-content: space-between;
+}
+.orderDetail-status-btn{
+  margin-top: 20rpx;
+  padding: 8rpx 12rpx;
+  border-radius: 12rpx;
+  margin-left: 24rpx;
+  display: inline-block;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 26rpx;
+  position: relative;
+}
+.orderDetail-status-info{
+  margin-top: 32rpx;
+  padding: 0 6rpx;
+} 
+.orderDetail-progress{
+  margin-top: 12rpx;
+  padding: 0 12rpx;
+}
+.orderDetail-crowdfunding-info{
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 12rpx;
+}
+.orderDetail-crowdfunding-time,.orderDetail-crowdfunding-prople{
+  padding-left: 12rpx;
+}
+
+
+
+.orderDetail {
+  font-size: 28rpx;
+  padding-bottom: 10rpx;
+  background-color: #fff;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  margin-top: 32rpx;
+}
+.orderDetail-content {
+  padding: 0rpx 28rpx;
+}
+.orderDetail-content > .setmeal-list:nth-of-type(1) {
+  border-top: none;
+}
+.setmeal-list {
+  flex-direction: column;
+  padding: 34rpx 0rpx;
+  border-top: 1px solid #d0d0d7;
+}
+.setmeallist-topleft {
+  width: 306rpx;
+  height: 180rpx;
+  flex-shrink: 0;
+}
+.setmeallist-topleft image {
+  width: 306rpx;
+  height: 180rpx;
+}
+.setmeallist-topright {
+  width: 448rpx;
+  flex-direction: column;
+  flex-direction: -webkit-column;
+  justify-content: space-between;
+  justify-content: -webkit-between;
+  padding: 0 20rpx;
+}
+.setmeal-title {
+  font-size: 28rpx;
+  color: #797979;
+}
+.setmeal-content-info {
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.setmeal-content-info-price {
+  color: #ff8500;
+}
+
+.setmeal-content-info-count {
+  color: #666;
+}
+
+.orderDetail-coursetotal{
+  font-size: 28rpx;
+  color: #333333;
+  flex-direction: column;
+  padding: 22rpx 0;
+}
+.orderDetail-coursetotal-item{
+  justify-content: space-between;
+  padding:0 22rpx;
+  height: 52rpx;
+  font-size: 28rpx;
+  line-height: 52rpx;
+}
+.orderDetail-status-btngroup{
+  flex-direction: row-reverse;
+  padding: 18rpx 20rpx;
+}
+.base-line{
+  height: 10rpx;
+  background: #f2f2f2;
+}
+.orderDetail-address{
+  font-size: 28rpx;
+  color: #333333;
+  flex-direction: column;
+  padding: 22rpx 0;
+}
+.orderDetail-address-item{
+  padding:0 22rpx;
+  height: 52rpx;
+  font-size: 28rpx;
+  line-height: 52rpx;
+}
+.orderDetail-address-item-first{
+  width: 148rpx;
+  display:inline-block;
+  text-align:justify;
+}
+.orderDetail-status-btn{
+  margin-top: 20rpx;
+  padding: 8rpx 12rpx;
+  border-radius: 12rpx;
+  margin-left: 24rpx;
+}
+.btn-red{
+  border: 1px solid #ff8500;
+  color: #ff8500;
+}
+.btn-grey{
+  border: 1px solid #8c8c8c;
+  color: #8c8c8c;
+}
+.orderDetail-SupportList{
+  justify-content: space-between;
+  padding: 36rpx;
+  align-items: center;
+}
+.orderDetail-left{
+  align-items: center;
+}
+.orderDetail-left-pic{
+  width: 60rpx;
+  height: 60rpx;
+  background: #d0d0d7;
+}
+.orderDetail-left-name{
+  margin-left: 22rpx;
+}
+.crowdfunding-btn{
+  position:absolute;
+  width:100%;
+  height:100%;
+  opacity:0;
+  top:0;
+  left:0;
+}

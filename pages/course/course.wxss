@@ -1,0 +1,57 @@
+@import '../commoncss/showToast.wxss';  
+image{
+  width: 100%;
+  height: 240rpx;
+}
+.img-class{
+  width:370rpx;
+height:201rpx;
+margin-bottom:100rpx;
+margin:150rpx auto 50rpx;
+display:block;
+
+}
+.circle-ico{
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #666;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 5rpx 15rpx;
+}
+.course-box{
+  margin:10rpx 10rpx  20rpx;
+}
+.course-item-title{
+  margin-top: 20rpx;
+  margin-bottom: 15rpx;
+}
+.course-list{
+  border-bottom: 1px solid #f2f2f2;
+  padding: 20rpx 0;
+}
+.course-list_img{
+  width: 340rpx;
+}
+.course-list_item{
+  padding: 10rpx;
+  width: 50%;
+}
+.course-list_detail{
+  margin: 20rpx 0 20rpx 0;
+  line-height: 35rpx;
+}
+.list-item_rt{
+  padding-left: 30rpx;
+}
+.bm-btn{
+  background-color: #58a6f8;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.course-list-bottom{
+  margin-top: 20rpx;
+  }

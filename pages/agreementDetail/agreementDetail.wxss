@@ -1,0 +1,15 @@
+/* pages/agreementDetail/agreementDetail.wxss */
+.course-contents{
+  padding-bottom: 100rpx;
+}
+.bottom-btn{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  background-color: #6591fc;
+  font-size: 30rpx;
+  text-align: center;
+}

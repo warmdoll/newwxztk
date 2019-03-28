@@ -1,0 +1,5 @@
+<import src="../outerFile/wxParse/wxParse.wxml" />
+<view class='course-contents'>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<view class='bottom-btn' wx:if="{{IsSignProtocol}}" bindtap='signProtocol'>签署协议</view>

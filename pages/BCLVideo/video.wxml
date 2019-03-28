@@ -1,0 +1,7 @@
+<!--video.wxml-->
+<view class="BCLVBox" style="{{BCLVBoxStyle}}">
+    <video id="BLV" src="{{src}}" class="BCLVideo" autoplay="true" hidden="{{BCLVideoHidden}}" bindplay="{{BCLplay}}" bindpause="{{BCLpause}}" bindended="{{BCLend}}" bindtimeupdate="{{BCLtimeUpdate}}" ></video>
+    <image src="{{BCLLoadingSrc}}" mode="aspectFit" hidden="{{BCLLoadingHidden}}" class="BCLVLoading" style="{{BCLLoadingStyle}}" bindload="{{BCLLoadingOnLoad}}"></image>
+    <image src="{{BCLPosterSrc}}" mode="aspectFit" hidden="{{BCLPosterHidden}}" class="BCLVPoster" style="{{BLVImgStyle}}"></image>
+    <canvas canvas-id="BCLPlayBtn" hover="true" hidden="{{BCLPosterHidden}}" bindtap="{{BCLplayBigBtnClk}}" class="BCLVBigBtn"/>
+</view>

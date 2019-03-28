@@ -1,0 +1,12 @@
+<template name="showDialog">
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">提示</view>
+  <view class="modal-content">请登录！</view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onDialogCancel">取消</view>
+    <button class="btn-confirm" bindgetuserinfo="getWxUserInfo" style='background:#f9f9f9;border:1px solid #f9f9f9;line-height:2.4;' open-type='getUserInfo'>确定</button>
+    <!-- <view class="btn-confirm" >确定</view> -->
+  </view>
+</view>
+</template>

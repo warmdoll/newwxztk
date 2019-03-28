@@ -1,0 +1,29 @@
+<view class='exclusive-content'>
+  <view class='exclusive-tip1'>{{MainTitle}}</view>
+  <view class='exclusive-tip2'>{{SubTitle}}</view>
+  <view class='exclusive-title'>{{TeacherTypeName || '助教老师'}}</view>
+  <view class='flex-box exclusive-info' wx:if="{{DistributeType==1}}">
+    <view class='flex-box exclusive-info-data'>
+      <image class='exclusive-pic' src='{{HeadPic}}'></image>
+      <view class='flex-box exclusive-infocontent'>
+        <view class='exclusive-name'>{{TeacherName}}</view>
+        <view class='exclusive-wx'>微信号：{{WeixinInfo}}</view>
+      </view>
+    </view>
+    <view class='exclusive-info-tip'>
+      协助评估学员水平,提供学习规划和复习备考建议。
+    </view>
+    <view class='exclusive-qrcode-content'>
+      <view class='exclusive-qrcode-parent'>
+        <image src='{{QrCodeUrl}}' class='exclusive-qrcode'></image>
+      </view>
+      <view class='exclusive-qrcode-tip'>点击二维码复制微信号</view>
+    </view>
+  </view>
+  <view class='flex-box exclusive-info' wx:else>
+    <image class='exclusive-type2-img' src='../../images/assistantteacher.png'></image>
+    <view class='flex-box exclusive-type2-tip'>
+      {{TeacherInfo}}
+    </view>
+  </view>
+</view>

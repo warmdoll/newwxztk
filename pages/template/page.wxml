@@ -1,0 +1,8 @@
+<view>
+  <component-tag-name>
+    <!-- 这里是插入到组件slot name="before"中的内容 -->
+    <view slot="before"></view>
+    <!-- 这里是插入到组件slot name="after"中的内容 -->
+    <view slot="after"></view>
+  </component-tag-name>
+</view>

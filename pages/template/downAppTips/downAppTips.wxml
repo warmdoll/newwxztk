@@ -1,0 +1,22 @@
+<template name="downApp">  
+  
+   <view class='bg-opa' wx:if="{{downAppShowToast}}" data-name="{{downAppShowToast}}">
+        <view class="downapp_list_box tc" >
+          <view class="circle_clear" catchtap='closedownAppWindow'>X</view>
+          <image class="downapp-bgimg" src='http://static.wangxiao.cn/xcx/images/downappbg.png'></image>
+          <image class="app-img" src='{{logoImg}}'></image>
+          <view class='box-bottom'>
+              <view class='tc down-app-title'>
+                更多学习内容，尽在<text class="app-name">{{appName}}！</text>
+              </view>
+              <view class="down-process">
+                <view class='fontc6'>下载流程如下：</view>
+                <view >第一步：点击应用市场搜索"{{appName}}"</view>
+                <view>第二步：下载"{{appName}}"</view>
+                <view >第三步：注册有礼</view>
+              </view>
+          </view>
+        </view>
+    </view>                   
+
+</template>  

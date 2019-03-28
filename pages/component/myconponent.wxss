@@ -1,0 +1,45 @@
+/* pages/component/myconponent.wxss */
+@import "componentcss.wxss";
+@import '../template/showDialog/showDialog.wxss';
+.list-ul{
+  margin-left: 20rpx;
+  margin-bottom: 30rpx;
+  padding-bottom:20rpx;
+  border-bottom: 1rpx solid #58a6f8;
+}
+.list-ul.borderlf{
+  border-left: 1px solid #58a6f8;
+}
+.list-ul .list-li{
+   padding-left: 42rpx; 
+  margin-top: 20rpx;
+}
+.list-ul .list-li.cha-ico1.commonico::before,
+.list-ul .list-li.cha-ico1.close.commonico::before{
+   background-color: #fff;
+   width:42rpx;
+    height:50rpx;
+    background-size:1800rpx 900rpx;
+    background-image:url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+    left: -21rpx;
+}
+.list-ul .list-li.cha-ico1.commonico::before{
+   background-position:-806rpx 0rpx;
+}
+.list-ul .list-li.cha-ico1.close.commonico::before{
+    background-position: -864rpx 0rpx;
+}
+.list-ul>.list-li .cha-ico1{position: relative;}
+.course-ico.commonico::before{
+   width: 55rpx;
+   height: 55rpx;
+  
+   vertical-align: middle;
+   top: 10rpx;
+   left: -60rpx;
+   background-position: -963rpx 5rpx;
+   
+}
+
+
+

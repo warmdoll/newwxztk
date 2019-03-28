@@ -1,0 +1,30 @@
+<scroll-view  scroll-y="{{!closeBox}}">
+<view class='view-center'>
+  <block wx:for="{{ModulesObj}}" wx:key="a">
+    <view class='exame-category'>
+      <image class='exame-nameico' src="{{item.Ico}}"></image>{{item.Title}}
+    </view>
+    <view class='flex-box flex-exame-name'>
+      <block wx:for="{{item.Children}}" wx:key="a">
+      <!--9c4f1716-ebea-47b4-aacb-3856420b4d66  -->
+        <view class='exame-name  tc {{item.SelectStatus==1?"act":""}}' bindtap='clickExamename' data-id="{{item.Id}}" data-SelectStatus="{{item.SelectStatus}}" data-parentsid="{{item.ParentId}}" data-signname="{{item.Title}}" data-sign="{{item.sign}}">{{item.Title}}</view>
+      </block>
+    </view>
+  </block>
+</view>
+</scroll-view>
+<block wx:if="{{closeBox}}">
+<view class='bg-opa'>
+  <view class="exam_list_box tc" style="display: block;">
+    <view class='exam_list-scroll'>
+      <view class="circle_clear" bindtap='closeBox'>X</view>
+        <view class="exam_list-ul">
+            <block wx:if="{{childrenObj.length>0}}" wx:for="{{childrenObj}}" wx:key="a">
+                <view  class="examlist  {{item.SelectStatus==1?'act':''}}" data-id="{{item.Id}}" data-SelectStatus="{{item.SelectStatus}}" bindtap='clickChild' data-parentsid="9c4f1716-ebea-47b4-aacb-3856420b4d66" data-sign="{{item.sign}}" data-signname="{{item.Title}}" >{{item.Title}}</view>
+            </block>
+        </view>
+      </view>
+  </view>
+
+</view>
+  </block>

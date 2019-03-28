@@ -1,0 +1,76 @@
+/* pages/signagreement/signagreement.wxss */
+.top-tip{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300rpx;
+}
+.top-tip-content{
+  color: #777;
+  font-size: 36rpx;
+}
+.voucher-item{
+  margin: 0 30rpx;
+  padding: 14rpx 0;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 28rpx;
+}
+.voucher-radio{
+  zoom: 60%;
+  flex-direction: row;
+  align-items: center;
+}
+.radio{
+  align-items: center;
+  margin-right: 20rpx;
+}
+.radio-group{
+  display: flex;
+  flex-direction: row;
+}
+.invoice-input{
+  font-size: 28rpx;
+  width: 540rpx;
+  height: 50rpx;
+  line-height: 40rpx;
+}
+.register-input{
+  font-size: 28rpx;
+  width: 520rpx;
+  height: 50rpx;
+  line-height: 40rpx;
+}
+.agreement{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.agreement-checkbox{
+  display: inline-block;
+  zoom: 60%;
+}
+.agreement-a{
+  color: #58A6F8;
+}
+.bottom-tip{
+  font-size: 28rpx;
+  color: #999;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 30rpx;
+}
+.sign-btn{
+  height: 100rpx;
+  background-color: #58A6F8;
+  border-radius: 50rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 100rpx;
+  margin: 60rpx 20rpx;
+}

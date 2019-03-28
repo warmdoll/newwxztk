@@ -1,0 +1,87 @@
+<view class='orderlist-bottom-tab-content'>
+  <block wx:for="{{['普通订单','众筹订单']}}" wx:key="id">
+    <view class='orderlist-bottom-tab-item {{currentOrderType == index ? "orderlist-bottom-tab-item-active":""}}' bindtap='onBottomTabTap' data-index="{{index}}">
+      <view class='orderlist-bottom-tab-item-name'>{{item}}</view>
+    </view>
+  </block>
+</view>
+<view class='orderlist-ordinary-content' wx:if="{{currentOrderType == 0}}">
+  <block wx:for="{{['全部','待付款','已付款']}}" wx:key="id">
+    <view class='orderlist-ordinary-tab-item {{currentOrdinaryType == index ? "orderlist-ordinary-tab-item-active":""}}' bindtap='onOrdinaryTabTap' data-index="{{index}}">
+      <view class='orderlist-ordinary-tab-item-name'>{{item}}</view>
+    </view>
+  </block>
+</view>
+<view class='orderlist-crowdfunding-content' wx:else>
+  <block wx:for="{{['全部','众筹中','已完成','已终止']}}" wx:key="id">
+    <view class='orderlist-crowdfunding-tab-item {{currentCrowdfundingType == index ? "orderlist-crowdfunding-tab-item-active":""}}' bindtap='onCrowdfundingTabTap' data-index="{{index}}">
+      <view class='orderlist-crowdfunding-tab-item-name'>{{item}}</view>
+    </view>
+  </block>
+</view>
+<view class='orderlist-content'>
+  <view wx:if="{{!orderList || orderList.length ==0}}" class='flex-box no-data'>
+    <image src='../../images/noData.png' class='no-data-img'></image>
+    <view class='no-data-text'>暂无数据</view>
+  </view>
+  <view wx:else>
+    <block wx:for="{{orderList}}" wx:key="index" wx:for-item="order">
+    <view class='orderlist-items'>
+      <view class='orderlist-br'></view>
+      <view class='flex-box orderlist-items-title'>
+        <view class='orderlist-items-CreateTime'>{{order.CreateTime}}</view>
+        <view class='orderlist-items-status'>{{order.OrderType == 1 ? formatStatusToCNFromOrdinaryType[order.OrderStatus]:formatStatusToCNFromCrowdfundingType[order.FundStatus]}}</view>
+      </view>
+      <view class='orderlist-items-content' bindtap="goOrderDetailPage" data-OrderNumber='{{order.OrderNumber}}'>
+        <block wx:for="{{order.Products}}" wx:key="index" wx:for-item="product">
+          <view class='flex-box setmeal-list'>
+            <view class='flex-box'>
+              <view class='setmeallist-topleft'>
+                <image src="{{product.Img}}" wx:if="{{product.Img}}"></image>
+                <image src="../../images/courseCover.png" wx:else></image>
+              </view>
+              <view class='flex-box setmeallist-topright'>
+                <view class="setmeal-title">{{product.Title}}</view>
+                <view class="flex-box setmeal-content-info">
+                  <view class='setmeal-content-info-price'>￥{{product.Price}}</view>
+                  <view class='setmeal-content-info-count'>X{{product.Count}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class='flex-box orderlist-items-total'>
+        <text>共{{order.Products.length}}个商品，合计￥{{order.ProductsPrice}}（含{{order.SysExpressPrice}}元运费）</text>
+        <view>></view>
+      </view>
+      <view class='orderlist-items-crowdfunding' wx:if="{{order.OrderType==2}}">
+        <progress percent="{{order.Progress}}" activeColor="#6591FC" active class='orderlist-items-crowdfunding-progress' />
+        <view class='flex-box orderlist-items-crowdfunding-info'>
+          <view>已筹到
+            <text class='orderlist-items-crowdfunding-info-price'>{{order.Funded}}</text>元</view>
+          <view>共{{order.SupportCount}}人支持</view>
+        </view>
+      </view>
+      <view class='flex-box orderlist-items-buttons'>
+        <view class='orderlist-items-buttons-item btn-grey' wx:if="{{order.OrderStatus==1 && !order.Products[0].IsComment && (order.Products[0].ProductsType == 1 || order.Products[0].ProductsType == 6 || order.Products[0].ProductsType == 7 || order.Products[0].ProductsType == 8 || order.Products[0].ProductsType == 9)}}" data-productsid='{{order.Products[0].ProductsId}}' data-productstype="{{order.Products[0].ProductsType}}" catchtap='toEvaluate'>去评价</view>
+        <view class='orderlist-items-buttons-item btn-grey' wx:if="{{order.OrderType==1 && order.OrderStatus==0}}" data-OrderNumber='{{order.OrderNumber}}' catchtap='cancelOrder'>取消订单</view>
+        <!-- <view class='orderlist-items-buttons-item btn-grey' wx:if="{{order.OrderType==2 && order.SupportOthersPay==1}}" data-OrderNumber='{{order.OrderNumber}}' catchtap='payForAnother'>找人代付</view> -->
+        <view class='orderlist-items-buttons-item btn-grey' wx:if="{{order.OrderType==2 && order.SupportOthersPay==1}}">
+          <text>找人代付</text>
+          <button open-type="share" class='crowdfunding-btn' data-OrderNumber='{{order.OrderNumber}}' data-projectId='{{order.ProjectId}}'></button>
+        </view>
+        <view class='orderlist-items-buttons-item btn-grey' wx:if="{{order.OrderType==1 && order.OrderStatus ==2}}" data-OrderNumber='{{order.OrderNumber}}' catchtap='recoveryOrder'>恢复订单</view>
+        <view class='orderlist-items-buttons-item btn-grey' wx:if="{{order.FundStatus ==1}}">
+          <text>找人众筹</text>
+          <button open-type="share" class='crowdfunding-btn' data-OrderNumber='{{order.OrderNumber}}' data-projectId='{{order.ProjectId}}'></button>
+        </view>
+        <view class='orderlist-items-buttons-item btn-red' wx:if="{{order.FundStatus ==1 || order.FundStatus ==3}}" data-OrderNumber='{{order.OrderNumber}}' data-ProductsPrice='{{order.ProductsPrice}}' catchtap='payTheBalance'>补交余款</view>
+        <view class='orderlist-items-buttons-item btn-red' wx:if="{{order.OrderType==1 && order.OrderStatus==0}}" data-OrderNumber='{{order.OrderNumber}}' data-ProductsPrice='{{order.ProductsPrice}}' catchtap='goPaymentPage'>去付款</view>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{orderList && orderList.length !=0}}" class='baseline'>--------我是有底线的--------</view>
+  </view>
+  
+</view>

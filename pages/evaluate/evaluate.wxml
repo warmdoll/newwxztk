@@ -1,0 +1,23 @@
+<view class='evaluate-content'>
+  <view class='evaluate-content-item'>
+    <view class='evaluate-item'>
+      <text class='evaluate-item-title'>{{evaElmentArr[0].Name}}</text>
+      <mystar class="star-content" starValue="{{abilityValue}}" bind:starevent="setAbilityValue"></mystar>
+    </view>
+    <view class='evaluate-item'>
+      <text class='evaluate-item-title'>{{evaElmentArr[1].Name}}</text>
+      <mystar class="star-content" starValue="{{mienValue}}" bind:starevent="setMienValue"></mystar>
+    </view>
+    <view class='evaluate-item'>
+      <text class='evaluate-item-title'>{{evaElmentArr[2].Name}}</text>
+      <mystar class="star-content" starValue="{{datumValue}}" bind:starevent="setDatumValue"></mystar>
+    </view>
+  </view>
+
+  <view class='evaluate-box'>
+    <textarea value="{{textareaValue}}" bindinput="setTextareaValue" placeholder="请输入评论信息" class='evaluate-textarea' />
+  </view>
+  <view class='evaluate-confirm-btn' bindtap='comitEvaluate'>
+    <text>提交</text>
+  </view>
+</view>

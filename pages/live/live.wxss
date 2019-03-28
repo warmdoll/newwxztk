@@ -1,0 +1,261 @@
+@import '../template/showDialog/showDialog.wxss';
+.tab-box {
+  width: 100%;
+  border-bottom: 1px solid #e8e8e8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+}
+
+.tab-item {
+  width: 50%;
+  padding: 20rpx 0;
+  margin-bottom: 10rpx;
+}
+
+.text-item {
+  color: #666;
+  font-size: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.live-btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#58a6f8;
+  padding:0 20rpx;
+  border-radius:30rpx;
+  color:#fff;
+  font-size:24rpx;
+  height:55rpx;
+  line-height:55rpx;
+  margin-bottom:25rpx;
+}
+.live-btn-box-bespeak{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#fff;
+  padding:0 20rpx;
+  border-radius:30rpx;
+  color:#58a6f8;
+  font-size:24rpx;
+  height:55rpx;
+  line-height:55rpx;
+  margin-bottom:25rpx;
+  border: 1px solid #58a6f8;
+}
+.translate-box {
+  width: 100%;
+  background-color: #ccc;
+  height: 100%;
+}
+
+.tab-container {
+  width: 200%;
+  height: 100%;
+}
+
+.swiper-box {
+  display: block;
+  margin-top: 100rpx;
+  width: 100%;
+  height: 700rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.line-top-img {
+  width: 100%;
+  height: 430rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.live-ul {
+  padding: 20rpx;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  justify-content: space-between;
+}
+
+.flex-list {
+  display: flex;
+  width: 100%;
+}
+
+.flex-item {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-item-middle {
+  padding: 10rpx 30rpx 0 30rpx;
+}
+
+.flex-list {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.live-list {
+  padding: 20rpx 0;
+}
+
+.img-list {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.list-ul {
+  width: 100%;
+  color: #333;
+}
+
+.live-list-top {
+  background-color: #8df;
+  padding: 20rpx 20px 0 0;
+  position: relative;
+}
+
+.live-list-detail {
+  color: #fff;
+  font-size: 30rpx;
+  position: absolute;
+  top: 180rpx;
+  left: 42%;
+  margin-left: -175rpx;
+}
+
+.live-title {
+  color: #333;
+  font-size: 30rpx;
+  width: 400rpx;
+}
+
+.live-btn {
+  color: #fff;
+  font-size: 24rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+}
+.live-btn-bespeak{
+  color: #58a6f8;
+}
+
+/* .live-btn.commonico::before{
+   width: 20rpx;
+  height: 40rpx;
+   background-position: -1132rpx 0rpx;
+   vertical-align: middle;
+   top: 20rpx;
+   left: 15rpx;
+} */
+
+.live-list-bottom {
+  margin-top: 20rpx;
+}
+
+/* .commonico.live-time::before{
+   width: 40rpx;
+  height: 45rpx;
+   background-position: -1192rpx 0rpx;
+   vertical-align: middle;
+   top: 7rpx; 
+   left: -40rpx;
+} */
+
+.live-list-box {
+  padding: 10rpx 0 40rpx 0;
+}
+
+.swiper-item {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.no-data {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 100rpx);
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f6f7;
+  z-index: 0;
+  top: 0;
+}
+
+.no-data-img {
+  width: 371rpx;
+  height: 202rpx;
+}
+
+.no-data-text {
+  margin-top: 86rpx;
+  color: #d5d5d5;
+}
+
+.play-icon {
+  margin-right: 12rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.play-icon-paly {
+  background-size: 1800rpx 900rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position: -862rpx 0rpx;
+}
+
+.play-icon-live {
+  background-size:1800rpx 900rpx;
+  background-image:url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-1121rpx 6rpx;
+  width:32rpx;
+  height:32rpx;
+}
+
+.play-icon-bespeak {
+  background-size:1800rpx 900rpx;
+  background-image:url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-1162rpx 0rpx;
+  width:28rpx;
+  height:28rpx;
+  margin-top: 9rpx;
+}
+.play-icon-hasbespeak{
+  background-size:1800rpx 900rpx;
+  background-image:url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-1202rpx 2rpx;
+  width:28rpx;
+  height:28rpx;
+}
+.play-icon-pay {
+  background-size:972rpx 508rpx;
+  background-image:url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-573rpx 5rpx;
+}
+
+.play-icon-playback {
+  background-size:972rpx 508rpx;
+background-image:url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+background-position:-518rpx 5rpx;
+
+}
+.play-icon-noplay{
+  width: 44rpx;
+  height: 50rpx;
+  background-size: 1800rpx 900rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+  background-position:-1428rpx -190rpx;
+}

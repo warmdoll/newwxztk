@@ -1,0 +1,40 @@
+<view class='course-palylist-content'>
+  <block wx:for="{{coursePlaylist}}" wx:for-item="subjects" wx:for-index="subjectsindex" wx:key="key" id="{{subjects.Id}}">
+    <view class='subjects-content' catchtap='tapSubjectsItem' data-subjectsindex='{{subjectsindex}}'>
+      <view class='{{currentSubjectIndex == subjectsindex ? "subjects-icon-open":"subjects-icon"}}'></view>
+      <view class='subjects-name'>{{subjects.Name}}</view>
+    </view>
+    <block wx:for="{{subjects.Courses}}" wx:for-item="courses" wx:for-index="coursesindex" wx:key="key" id="{{courses.Id}}" wx:if="{{currentSubjectIndex == subjectsindex}}">
+      <view class='courses-content' catchtap='tapCourseItem' data-coursesid='{{courses.Id}}' data-coursesindex='{{coursesindex}}' data-subjectsindex='{{subjectsindex}}'>
+        <view class='courses-line-content'>
+          <view class='courses-line-content-line'></view>
+        </view>
+        <view class='courses-content-item'>
+          <view class='courses-content-item-left'>
+            <view class='{{currentCourseIndex == coursesindex ? "courses-content-item-icon-open":"courses-content-item-icon"}}'></view>
+            <view class='courses-content-item-name'>{{courses.Title}}</view>
+          </view>
+          <view class='courses-content-item-right'></view>
+        </view>
+      </view>
+      <block wx:for="{{courses.RecentClassHours}}" wx:for-item="classes" wx:for-index="classesindex" wx:key="key" id="{{classes.Id}}" wx:if="{{currentCourseIndex == coursesindex}}">
+        <view class='courses-content'>
+          <view class='courses-line-content'>
+            <view class='courses-line-content-line'></view>
+          </view>
+          <view class='courses-content-item'>
+            <view class='courses-content-item-left'>
+              <view class='classes-content-item-icon-content'>
+                <view class='classes-content-item-icon'></view>
+              </view>
+              <view class='courses-content-item-name'>{{classes.Title}}</view>
+            </view>
+                      
+            <view class='{{(activeTabData.classesId == classes.Id || activeTabData.activityId == classes.activityId) ? "classes-content-item-right-play":statusClass[classes.ClassHoursStatus]}}' catchtap='toSwitchPlay' data-uu='{{classes.UserUnique}}' data-vu='{{classes.VideoUnique}}' data-classesid='{{classes.Id}}' data-status='{{classes.ClassHoursStatus}}' data-activityid='{{classes.activityId}}' data-title='{{classes.Title}}' data-subjectsindex='{{subjectsindex}}' data-coursesindex='{{coursesindex}}' data-classesindex='{{classesindex}}'></view>
+            <!-- <view class='{{!classes.IsBuy ? "classes-content-item-right-buy" : activeTabData.classesId == classes.Id ? "classes-content-item-right-play":"classes-content-item-right"}}' catchtap='toSwitchPlay' data-uu='{{classes.UserUnique}}' data-vu='{{classes.VideoUnique}}' data-classesid='{{classes.Id}}' data-isbuy='{{classes.IsBuy}}'></view> -->
+          </view>
+        </view>
+      </block>
+    </block>
+  </block>
+</view>

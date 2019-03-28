@@ -1,0 +1,225 @@
+.center-box {
+  padding: 0 20rpx;
+}
+
+.center-box-top {
+  padding: 20rpx 20rpx 0 20rpx;
+}
+
+.user-img {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+
+.flex-list-phone {
+  justify-content: center;
+}
+
+.login-btn {
+  border-radius: 60rpx;
+  padding: 0 20rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 24rpx;
+  width: 200rpx;
+}
+
+.my-top-box {
+  padding: 25rpx 10rpx;
+}
+
+.flex-list-lf {
+  padding: 0 30rpx;
+  margin-left: 20rpx;
+}
+
+.list-rt-bt {
+  margin-top: 20rpx;
+}
+
+.my-module {
+  margin-top: 20rpx;
+}
+
+.my-module-text {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.commoico-box {
+  width: 45rpx;
+  height: 50rpx;
+  top: 10rpx;
+  left: -30rpx;
+  margin: 20rpx auto;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size: 2000rpx 600px;
+  vertical-align: middle;
+}
+
+.module-list-order {
+  background-position: -1382rpx 0rpx;
+}
+
+.module-list-xiyi {
+  background-position: -1440rpx 0rpx;
+  top: -25px;
+}
+
+.module-list-course {
+  background-position: -1510rpx 0rpx;
+  top: -25px;
+}
+
+.subject-list {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+  color: #333;
+  border-bottom: 1px solid #f2f2f2;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.subject-item-rt {
+  width: 90%;
+}
+
+.goto-href.commonico::before {
+  width: 30rpx;
+  height: 50rpx;
+  background-position: -402rpx 12rpx;
+  background-size: 2000rpx 600px;
+  vertical-align: middle;
+  top: -5rpx;
+  left: 0rpx;
+}
+
+.subject-item-rt.commonico {
+  padding-left: 50rpx;
+}
+
+.subject-item-rt.commonico::before {
+  width: 40rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  top: -8rpx;
+  left: -10rpx;
+  background-size: 2000rpx 600px;
+}
+
+.subject-item1.commonico::before {
+  background-position: -1570rpx 12rpx;
+}
+
+.subject-item2.commonico::before {
+  background-position: -1610rpx 12rpx;
+}
+
+.subject-item3.commonico::before {
+  background-position: -1650rpx 12rpx;
+}
+
+.subject-item4.commonico::before {
+  background-position: -1690rpx 12rpx;
+}
+
+.bg-interval {
+  width: 100%;
+  height: 10rpx;
+  background-color: #f2f2f2;
+}
+
+.subject-item5.commonico::before {
+  background-position: -1730rpx 12rpx;
+}
+
+.subject-item6.commonico::before {
+  background-position: -1770rpx 12rpx;
+}
+
+.subject-item7.commonico::before {
+  background-position: -1810rpx 12rpx;
+}
+
+.module-list-img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.posi-relative {
+  position: relative;
+}
+
+.zixun-btn {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+}
+
+.left-content {
+  align-items: center;
+}
+
+.left-icon-teacher {
+  height: 44rpx;
+  width: 44rpx;
+  margin-right: 16rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size: 2000rpx 600px;
+  background-position: -1650rpx 0rpx;
+}
+
+.left-icon-contact {
+  height: 44rpx;
+  width: 44rpx;
+  margin-right: 16rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size: 2000rpx 600px;
+  background-position: -1768rpx 0rpx;
+}
+
+.left-icon-recommend {
+  height: 44rpx;
+  width: 44rpx;
+  margin-right: 16rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size: 2000rpx 600px;
+  background-position: -1808rpx 0rpx;
+}
+
+.left-icon-authority {
+  height: 36rpx;
+  width: 44rpx;
+  margin-right: 16rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size: 300rpx 90px;
+  background-position: -173rpx -30rpx;
+}
+
+.right-icon-link {
+  height: 48rpx;
+  width: 44rpx;
+  margin-right: 16rpx;
+  background-image: url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png");
+  background-repeat: no-repeat;
+  background-size: 2000rpx 600px;
+  background-position: -381rpx 0rpx;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.agreementlist-content-item:nth-child(0) {
+  border-top: none;
+}

@@ -1,0 +1,22 @@
+<!--切换考试或科目  -->
+<view class='center-box'>
+  <view class='selected-box clearfix'  bindtap='backselectedNa'>
+    <view class='selected-img fl'></view>
+    <text class='commonico course-name over-circle fl'>选择考试</text>
+  </view>
+  <view class='subject-box' wx:if="{{subjectArr.length>0}}">
+  <block wx:for="{{subjectArr}}" wx:key="a">
+    <view class='subject-list flex-box' data-name="{{item.Name}}" data-subjectid="{{item.ID}}"  bindtap='gotoStudy'>
+      <view class='over-circle subject-item-rt'>{{item.Name}}</view>
+      <view class='goto-href commonico'></view>
+    </view>
+  </block>
+  </view>
+</view>
+<block wx:if="{{nodata}}">
+    <view class='ver-middle nodata-box'>
+      <image class='img-class' src='../images/no-data.png'></image>
+      <view class='no-data-size tc'>暂无数据</view>
+    </view>
+  </block>
+    

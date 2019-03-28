@@ -1,0 +1,44 @@
+<view class="box-pa">
+  <view class='pay-serv'>购买服务：</view>
+  <view class='pay-serv-title'>{{typename}}</view>
+  <view class='pay-serv'>购买时长：</view>
+</view>
+  <view class='flex-box buy-time'>
+  <block wx:for="{{dataArr.Discount.MonthDiscountList}}" wx:if="{{dataArr.Discount.MonthDiscountList.length>0}}" wx:key="a">
+    <view class='flex-item1 tc {{item.status?"act":""}}' data-monthCount="{{item.TotalMonth}}" data-disCount="{{item.Discount}}" bindtap="selectedMonth">{{item.TotalMonth}}个月{{item.Discount==10?"":item.Discount}}{{dataArr.Discount.MonthDiscountList.length>1&&index>0?"折":""}}</view>
+  </block>
+  </view>
+  <view class="box-pa">
+  <!-- <block wx:if="{{optionsObj.productstype&&optionsObj.productstype==14}}">
+  </block>
+  <block wx:else> -->
+     <!-- <view class='pay-serv-title validity-date'>有效期至：2018-3-16</view> -->
+    <block wx:if="{{dataArr.OtherIsProduct}}">
+    <view class='pa-tb'>
+      <checkbox-group bindchange="checkbuyboxChange">
+        <label class="checkbox">
+          <!-- <checkbox value="aa" checked="true" color='#ff8500'/>共16章还未购买 <text class='yello-color'>打包购买再{{dataArr.Discount.AllPackDiscount}}折</text> -->
+    
+               <checkbox value="{{checkedbuy}}" checked="{{checkedbuy}}" color='#ff8500'/> <text class='yello-color'>
+               <block wx:if="{{!frompage}}">同时购买</block>{{dataArr.OtherProductName}}</text>
+      
+           
+        </label>
+      </checkbox-group>
+    </view>
+    </block>
+    <view class='pa-tb price-box'>
+      支付金额：<text class='old-price'>￥{{oldPrice}}</text><text class='now-price'>￥{{currentPrice}}元</text>
+    </view>
+    <view class='pay-btn tc {{checkedagreement? "confirm-btn":"cantconfirm-btn"}}' bindtap='gotoPay' >确认支付</view>
+    <view class='pay-btn tc  {{checkedagreement? "crowdfunding-btn":"cancrowdfunding-btn"}}' bindtap='crowdfundingPay'>众筹支付</view>
+  </view>
+  <view class='footer-btn box-pa'>
+    <checkbox-group bindchange="agreementChange">
+        <label class="checkbox">
+          <checkbox value="aa" checked="{{checkedagreement}}" value="{{checkedagreement}}" color='#ff8500'/>我已阅读并同意 <text class='xiyi-text' catchtap='toProtocalDetail'>{{protocolTitle}}</text>
+        </label>
+      </checkbox-group>
+  </view>
+  <import src="../../template/showToast/showToast.wxml" />
+<template is="showToast" data="{{showToast:showToast}}">  </template>

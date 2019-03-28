@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "考点练习",
+  "component": true,
+  "usingComponents": {
+    "myconponent": "../../component/myconponent"
+  }
+}

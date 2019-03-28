@@ -1,0 +1,88 @@
+<view class='box-pa'>
+  <block wx:if="{{swiperData.length>0}}">
+  <view class='flex-box flex-between tiku-top'>
+    <text class='fontsize28 fontc'>单选题（{{currTinum}}/{{totalTi}}）</text>
+    <view class='fontcbl fontsize28 live-btn commonico'> 查看往期</view>
+  </view>
+  <!--题干-->
+  <!--tab标签切换内容 -->
+<!--http://www.jb51.net/article/94936.htm  -->
+<view class="container swiper-outerbox" current="{{item.tiNum}}"  >
+<!--bindchange="bindChange" bindtouchstart="mytouchstart" bindtouchmove="mytouchmove"  -->
+    <view  class="swiper-box clearfix" duration="300" style='height:2000rpx;' >
+    <block wx:for="{{swiperData}}" wx:key="a">
+      <view class="fl item-box" data-num="{{item.tiNum}}" bindchange="bindChange" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+
+        <view class='ti-box'>
+          <view class='ti-title fontsize28'>
+            {{item.Content}}
+          </view>
+          <view class='ti-daan '> 
+            <view class='ti-daan-list  fontsize28 flex-box {{item.isStatus?" act":""}}' wx:for="{{item.Options}}" data-exameid="{{item.ExamID}}" wx:key="a"  data-parentsid="{{item.QuestionID}}"  data-id="{{item.ID}}" bindtap='selectedDaan'>
+              <view class='daan-ico '>{{item.Name}}</view>
+              <view class='fontc daan-content flex-item1'>{{item.Content}}</view>
+            </view>
+          </view>
+        </view>
+        <!--解析-->
+        <view wx:if="{{selectedObj[0].ansyShow}}" class='analysis-box fontc fonts24'>
+          <view class='analysis-list'>
+            正确答案：{{item.Answers}}
+            <text class='padd-left'>您的答案：C</text>
+          </view>
+          <view class='analysis-list'>
+            重要等级：
+          </view>
+          <view class='analysis-list'>
+            个人统计：做答{{item.oldid}}次，做错{{item.WrongCount}}次
+          </view>
+          <view class='analysis-list'>
+            全站统计：本题共被作答66次，正确率76，易错选项10
+          </view>
+          <view class='analysis-list'>
+
+            <!-- tab标签切换 -->
+
+            <view class='change-btn clearfix'>
+              <view class='change-btn-lf tc fl' catchtap="swichNav" data-current="0">文字解析</view>
+              <view class='change-btn-rt tc fl' catchtap="swichNav" data-current="1">视频解析</view>
+            </view>
+            <view class='fontc6'>
+              {{item.TextAnalysis}}
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+ 
+
+  <!--底部  -->
+  <view class='footer'>
+    <view class='common-bgwhite  fontc6'>
+      <view class='flex-box my-top-box common-flexrow'>
+        <view class='module-list flex-item1 tc' bindtap='showAny'>
+          <view class=' module-list-daan commoico-box'></view>
+          <view class='my-module-text'>查看答案</view>
+        </view>
+        <view class='module-list flex-item1 tc'>
+          <view class=' module-list-share commoico-box'></view>
+          <view class='my-module-text'>分享</view>
+        </view>
+        <view class='module-list flex-item1 tc'>
+          <view class=' module-list-error commoico-box'></view>
+          <view class='my-module-text'>纠错</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </block>
+  <block wx:else>
+    <view class='ver-middle nodata-box'>
+      <image class='img-class' src='../../images/no-data.png'></image>
+      <view class='fontc3 tc'>暂无数据</view>
+    </view>
+  </block>
+</view>

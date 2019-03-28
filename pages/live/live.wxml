@@ -1,0 +1,77 @@
+ <import src="../template/showDialog/showDialog.wxml" /> 
+<!-- tab标签切换 -->
+<view class='tab-box clearfix'>
+  <view class='fl tab-item tc' id='the-id'>
+    <text class="text-item {{currentTab==0 ? 'act' : ''}}" catchtap="swichNav" data-current="0">即将开始        </text>
+  </view>
+  <view class='fl tab-item tc'>
+    <text class="text-item {{currentTab==1 ? 'act' : ''}}" catchtap="swichNav" data-current="1">精彩回放       </text>
+  </view>
+</view>
+<!--tab标签切换内容 -->
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style='height:100%;position:absolute;'>
+  <swiper-item class="swiper-item">
+    <view class='live-ul' wx:for="{{courseListObj.live}}" wx:key="a" wx:if="{{courseListObj.live.length>0}}">
+      <view class='live-list-top'>
+        <image class='line-top-img' src='{{item.Img}}'></image>
+        <view class='live-list-detail' wx:if="{{item.Status == 3 || item.Status == 4}}">老师正在备课中，直播马上开始...</view>
+      </view>
+      <view class='flex-box flex-between live-list-box'>
+        <view class='flex-img'>
+          <image class='img-list flex-item' src='{{item.TeacherHead}}' wx:if="{{item.TeacherHead}}"></image>
+          <image class='img-list flex-item' src='../../images/defaultPic.png' wx:else></image>
+        </view>
+        <view class='flex-item flex-item-middle '>
+          <view class='live-title over-circle'>{{item.Title}}</view>
+          <view class='flex-box flex-between live-list-bottom'>
+            <text class=' fontc9'>{{item.TeacherName}}</text>
+            <view class='commonico live-time fontc9'>{{item.TimeInfo}}</view>
+          </view>
+        </view>
+        <view class='flex-item {{item.Status == 3 || item.Status == 4 ? "live-btn-box-bespeak":"live-btn-box"}}' data-status='{{item.Status}}' data-productsid='{{item.ProductsId}}' data-id='{{item.Id}}' data-index='{{index}}' bindtap='liveTapHander'>
+          <view class='play-icon {{statusClass[item.Status]}}'></view>
+          <view class='{{item.Status == 3 || item.Status == 4? "live-btn-bespeak":"live-btn"}}'>{{status[item.Status]}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{courseListObj.live.length == 0}}" class='flex-box no-data'>
+      <image src='../../images/noData.png' class='no-data-img'></image>
+      <view class='no-data-text'>暂无数据</view>
+    </view>
+  </swiper-item>
+  <!-- 我是呵呵 -->
+  <swiper-item class="swiper-item">
+    <view class='live-ul' wx:for="{{courseListObj.vod}}"  wx:key="a" wx:if="{{courseListObj.vod.length>0}}">
+      <view class='live-list-top'>
+        <image class='line-top-img' src='{{item.Img}}'></image>
+        <!-- <view class='live-list-detail'>老师正在备课中，直播马上开始...</view> -->
+      </view>
+      <view class='flex-box flex-between live-list-box'>
+        <view class='flex-img'>
+          <image class='img-list flex-item' src='{{item.TeacherHead}}'></image>
+        </view>
+        <view class='flex-item flex-item-middle '>
+          <view class='live-title over-circle'>{{item.Title}}</view>
+          <view class='flex-box flex-between live-list-bottom'>
+            <text class=' fontc9'>{{item.TeacherName}}</text>
+            <view class='commonico live-time fontc9'>{{item.TimeInfo}}</view>
+          </view>
+        </view>
+        <!-- <view class='flex-item live-btn-box'>
+          <view class='live-btn commonico' data-status='{{item.Status}}' data-productsid='{{item.ProductsId}}' data-id='{{item.Id}}' bindtap='vodTapHander'>{{status[item.Status]}}</view>
+        </view> -->
+        <view class='flex-item {{item.Status == 3 || item.Status == 4 ? "live-btn-box-bespeak":"live-btn-box"}}' data-status='{{item.Status}}' data-productsid='{{item.ProductsId}}' data-id='{{item.Id}}' bindtap='vodTapHander'>
+          <view class='play-icon {{statusClass[item.Status]}}'></view>
+          <view class='{{item.Status == 3 || item.Status == 4? "live-btn-bespeak":"live-btn"}}'>{{status[item.Status]}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{courseListObj.vod.length == 0}}" class='flex-box no-data'>
+      <image src='../../images/noData.png' class='no-data-img'></image>
+      <view class='no-data-text'>暂无数据</view>
+    </view>
+  </swiper-item>
+</swiper>
+<!--登录弹窗-->
+<template is="showDialog" data="{{...item}}"/>
+<!--登录弹窗-->

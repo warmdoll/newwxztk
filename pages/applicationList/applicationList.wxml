@@ -1,0 +1,13 @@
+<view class='subject-list flex-box' wx:for="{{applicationArr}}" data-title="{{item.Title}}" data-sign="{{item.sign}}" bindtap='downApp' wx:key="a"> 
+    <image class='appli-ico' src='{{item.Ico}}'></image>
+    <view class='subject-item-rt subject-item5 commonico '>{{item.Title}}</view>
+    <view class='goto-href commonico'></view>
+</view>
+<!--引导下载App  -->
+<view class='appName'>
+  <import src="../template/downAppTips/downAppTips.wxml" />
+<template is="downApp" data="{{downAppShowToast:downAppShowToast,appName:appName,logoImg:logoImg}}">  </template>  
+</view>
+
+
+

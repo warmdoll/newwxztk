@@ -1,0 +1,26 @@
+<view class='payment-content'>
+  <!-- <view class='payment-price'>
+    <text>订单号</text>
+    <text>{{projectId}}</text>
+  </view> -->
+  <view class='payment-price'>
+    <text>支持金额：</text>
+    <text>￥{{m}}</text>
+  </view>
+  <view class='flex-box payment-paytype'>
+    <text>支付方式：</text>
+    <view class='flex-box payment-paytype-right'>
+      <view class='flex-box payment-paytype-icon'>
+        <view class='payment-paytype-icon-bg'></view>
+      </view>
+      <view class='flex-box payment-paytype-desc'>
+        <view class='payment-paytype-desc-title'>微信安全支付</view>
+        <view class='payment-paytype-desc-text'>支持多种银行卡</view>
+      </view>
+      <view class='right-bottom-icon'></view>
+    </view>
+  </view>
+  <view class='payment-confirm-btn' bindtap='confirmPay'>
+    <text>确认支付</text>
+  </view>
+</view>

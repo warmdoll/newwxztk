@@ -1,0 +1,82 @@
+ <import src="../template/showDialog/showDialog.wxml" /> 
+<import src="../outerFile/wxParse/wxParse.wxml" />
+<!-- <modal modal-hidden="{{isTrue}}" modal-msg="{{ProductsTitle}}"/> -->
+<!-- <view class='mask_layer'  hidden='{{!showShare}}' />
+<view class='mask_layer-content' hidden='{{!showShare}}' catchtap='hiddenShareMenu'>
+  <view class='modal_box' catchtap='donothing'>
+    <view class='modal_box-content' catchtap='toSharePengyou'>
+      <image class='modal_box-pic' src='../../images/pengyouicon.png'></image>
+      <text class='modal_box-text'>朋友圈</text>
+    </view>
+    <view class='modal-box-line'>
+    </view>
+    <view class='modal_box-content'>
+      <image class='modal_box-pic' src='../../images/wxicon.png'></image>
+      <text class='modal_box-text'>微信</text>
+    </view>
+  </view>
+</view> -->
+<view class='{{showShare ? "overflow-hidden":""}}'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='top-swiper'>
+    <block wx:for="{{ProductsImgs}}" wx:key="item">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+        <view class='play-btn' data-videoaddress="item.id" bindtap='toPlayVideoPage'>
+          <view class='paly-img'></view>
+          <text class='play-text'>{{BuyType!=0?"试听课程":"开始学习"}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='course-info'>
+    <view class='course-top'>
+      <view class='course-top-left'>
+        <view class='course-title'>{{ProductsTitle}}</view>
+        <view class='course-title-assistant'>
+          <template is="wxParse" data="{{wxParseData:desc.nodes}}" />
+        </view>
+      </view>
+      <view class='course-top-right'>
+        <text class='course-top-right-paybtn' wx:if="{{BuyType != 0}}" bindtap='toCrowdfunding'>众筹支付</text>
+      </view>
+    </view>
+    <view class='course-bottom'>
+      <view class='course-price'>
+        <text class='course-oldprice'>￥{{Price}}</text>
+        <text class='course-currentprice'>  ￥{{CurrentPrice}}</text>
+      </view>
+      <view>已有
+        <text class='course-enroll-count'>{{pBuy}}</text>人报名</view>
+    </view>
+  </view>
+  <view class='course-detail-title'>课程介绍</view>
+  <view class='course-contents'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class='bottoms-btn'>
+    <view class='course-buy-now canBuy' bindtap='nowBuy' wx:if="{{BuyType != 0}}">立即购买</view>
+    <view wx:else class='course-buy-now noBuy'>已购买</view>
+    <view class='course-consult' bindtap='toConsult'>
+      <button open-type='contact' class='zixun-btn' session-from="{{sessionFrom}}"></button>
+      <view class='consult-icon'></view>
+      <view>咨询</view>
+    </view>
+    <view class='course-share' bindtap='showShareMunu'>
+      <button open-type='share' class='zixun-btn'></button>
+      <view class='share-icon'></view>
+      <view>分享</view>
+    </view>
+    <!-- <view class='course-share'>
+    <button class='flex-box course-share-btn' open-type="share">
+      <view class='share-icon-content'>
+        <view class='share-icon'></view>
+      </view>
+      <text>分享</text>
+    </button>
+  </view> -->
+  </view>
+</view>
+  <!--登录弹窗-->
+<template is="showDialog" data="{{...item}}"/>
+<!--登录弹窗-->
+

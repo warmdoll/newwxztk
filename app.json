@@ -1,0 +1,84 @@
+{
+  "pages": [
+    "pages/selectedexame/selectedexame",
+    "pages/myagreement/myagreement",
+    "pages/signagreement/signagreement",
+    "pages/agreementDetail/agreementDetail",
+    "pages/crowdfundingInfo/crowdfundingInfo",
+    "pages/course/course",
+    "pages/mycourse/mycourse",
+    "pages/setmeallist/setmeallist",
+    "pages/login/quickLogin/quickLogin",
+    "pages/login/passLogin/passLogin",
+    "pages/orderList/orderList",
+    "pages/coursePlay/coursePlay",
+    "pages/orderDetail/orderDetail",
+    "pages/exclusiveTeacher/exclusiveTeacher",
+    "pages/confirmOrder/confirmOrder",
+    "pages/courseDetail/courseDetail",
+    "pages/crowdfundingPayment/crowdfundingPayment",
+    "pages/payment/payment",
+    "pages/chapterPlay/chapterPlay",
+    "pages/tiku/tikupaper/tikupaper",
+    "pages/tiku/upgradeservice/upgradeservice",
+    "pages/tiku/highfrequencytiku/highfrequencytiku",
+    "pages/pay/tipay/tipay",
+    "pages/study/study",
+    "pages/tiku/practiceList/practiceList",
+    "pages/tiku/fliterquestion/fliterquestion",
+    "pages/tiku/oyearpaperlist/oyearpaperlist",
+    "pages/tiku/paperquestionsdetail/paperquestionsdetail",
+    "pages/tiku/everydaylist/everydaylist",
+    "pages/tiku/evaluationReport/evaluationReport",
+    "pages/tiku/answerSheet/answerSheet",
+    "pages/my/my",
+    "pages/live/live",
+    "pages/dailypractice/dailypractice",
+    "pages/applicationList/applicationList",
+    "pages/subject/subject",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/confirmOrder/protocol/protocol",
+    "pages/supportPayment/supportPayment",
+    "pages/publicwebbiew/publicwebbiew",
+    "pages/evaluate/evaluate",
+    "pages/customView/customView"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2f7aee",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#58a6f8",
+    "list": [
+      {
+        "pagePath": "pages/study/study",
+        "color": "#999",
+        "selectedColor": "#58a6f8",
+        "iconPath": "pages/images/ft-1.png",
+        "selectedIconPath": "pages/images/ft-sted-1.png",
+        "text": "学习"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "color": "#999",
+        "selectedColor": "#58a6f8",
+        "iconPath": "pages/images/ft-2.png",
+        "selectedIconPath": "pages/images/ft-sted-3.png",
+        "text": "课程"
+      }
+      ,
+      {
+        "pagePath": "pages/my/my",
+        "color": "#999",
+        "selectedColor": "#58a6f8",
+        "iconPath": "pages/images/ft-4.png",
+        "selectedIconPath": "pages/images/ft-sted-4.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

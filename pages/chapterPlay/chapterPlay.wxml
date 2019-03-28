@@ -1,0 +1,322 @@
+<import src="../outerFile/wxParse/wxParse.wxml" />
+<import src="../template/showDialog/showDialog.wxml" />
+<view class='content'>
+<template is="showDialog" data="{{...item}}"/>
+<view id="chapter-top-height">
+ <view wx:if='{{isShowVideo}}'>
+    <include src="../BCLVideo/video.wxml" />
+  </view>
+  <image style="width: 100%;"  wx:if='{{!isShowVideo}}' src="http://img.wangxiao.cn/bjupload/2018-05-25/fbd32255-e890-495d-abb5-79c397b1932d.jpg"></image>
+  <import src="../outerFile/wxParse/wxParse.wxml" />
+  <view class='flex-box flex-between share-box'>
+    <button open-type="share" data-title="给你分享个不错的视频课:{{title}}">
+      <view class='share-btn box-shadow  commonico'>分享课程</view>
+    </button>
+    <!-- <view class='collection-btn commonico {{collection?"act":""}}' bindtap='collectionfn'>收藏</view> -->
+  </view>
+  <view class='line'></view>
+</view>
+  <!-- tab标签切换 -->
+<view class="chapter-tab-height" id="chapter-tab-height">
+  <view class='tab-box clearfix'>
+    <view class='fl tab-item tc' id='the-id'>
+      <view class="text-item {{currentTab==0 ? 'act' : ''}}" catchtap="swichNav" data-current="0">讲义 </view>
+    </view>
+    <view class='fl tab-item tc'>
+      <view class="text-item {{currentTab==1 ? 'act' : ''}}" catchtap="swichNav" data-current="1">目录 </view>
+    </view>
+    <view class='fl tab-item tc'>
+      <view class="text-item {{currentTab==2 ? 'act' : ''}}" catchtap="swichNav" data-current="2">评价 </view>
+    </view>
+  </view>
+ 
+</view>
+ <view class='line'></view>
+  <!--tab标签切换内容 -->
+  <swiper  current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" >
+    <swiper-item>
+      <view style="height:100%;overflow-y:scroll;">
+        <template is="wxParse" data="{{wxParseData:jiangyiHtml.nodes}}" />
+      </view>
+    </swiper-item>
+    <!--目录  -->
+    <swiper-item>
+      <view style="height:100%;overflow-y:scroll;">
+        <view class='list-ul'>
+          <view class='list-li'>
+            <!--章节列表-->
+
+            <!-- <myconponent bindmyevent="bindgotocourseplay" classHoursid="{{id}}" parentId="{{parentId}}" id="componentId" wx:if="{{isShowCom}}"></myconponent> -->
+
+            <view class='chapter-list-box'>
+              <view class='list-ul {{item.open? "borderlf" : ""}}' wx:for="{{arr}}" wx:for-item="item" wx:key="key" id="{{index}}" wx:if="{{arr.length>0}}">
+                <view class='cha-ico1 commonico list-li  {{item.open? "" : "close"}}' data-id="{{item.Id}}" bindtap='openList'>
+                  <view class=' clearfix'>
+                    <view class='clist-li-title fl'>
+                      <view class='over-circle'>{{item.Title}}</view>
+                    </view>
+                    <!--ClassHoursType==0或3需要购买  -->
+                    <block wx:if="{{item.ClassHoursType==0||item.ClassHoursType==3}}">
+                      <!--已买 -->
+                      <block wx:if="{{item.HasBuy}}">
+                        <!--VideoUnique不等于null&&长度大于0 显示播放按钮 其它条件不显示任何按钮 -->
+                        <view class='commonico rt {{item.VideoUnique!=null&&item.VideoUnique.length>0? "course-ico":""}} {{item.nowplay==0?"now-play":""}} ' catchtap='bindgotocourseplay' data-type="1" data-title="{{item.Title}}" data-prodcutsid="{{productsId}}" data-id="{{item.Id}}"
+                          data-uu="{{videoUu}}" data-vu="{{item.VideoUnique}}"></view>
+                      </block>
+                      <!--未买 显示购物车按钮  -->
+                      <block wx:else>
+                        <view class='commonico rt cart-ico' data-id="{{item.Id}}" data-title="{{item.Title}}" catchtap='gotobuy'></view>
+                      </block>
+                    </block>
+                    <!--ClassHoursType==1或2不需要购买  -->
+                    <block wx:if="{{item.ClassHoursType==1||item.ClassHoursType==2}}">
+
+                      <block wx:if="{{item.UnlockWay==1}}">
+                      <block wx:if="{{islogin}}">
+                        <!--1 分享解锁  -->
+                        <button class='sharebtn-box' open-type="share" data-type="2" catchtap='bindgotocourseplay' data-id="{{item.Id}}" data-title="{{item.Title}}">
+                          <view class='commonico rt share-ico'></view>
+                        </button>
+                      </block>
+                       <block wx:else>
+        <view class='commonico rt share-ico' catchtap='showLoginDialog' ></view>
+        </block>
+        </block>
+                      <block wx:else>
+                        <!--0,2,3 判断是否可播放  -->
+                        <view class='commonico rt {{item.VideoUnique!=null&&item.VideoUnique.length>0? "course-ico":""}}  {{item.nowplay==0?"now-play":""}}' catchtap='bindgotocourseplay' data-type="1" data-title="{{item.Title}}" data-prodcutsid="{{productsId}}" data-id="{{item.Id}}"
+                          data-uu="{{videoUu}}" data-vu="{{item.VideoUnique}}"></view>
+                      </block>
+                    </block>
+                  </view>
+                  <view class='width100'>
+                    <text class='fontc9'>{{item.ClassHoursInfo}}{{item.QuestionCount}}</text>
+                    <text class='fontc9 pbuy-stu'>{{item.pBuyInfo}}{{item.StudyCount}}</text>
+                  </view>
+
+                  <block wx:if="{{item.Children.length>0&&item.Children!=null}}">
+                    <!--第二级  -->
+                    <block style='{{item.open ? "display:block" : "display:none"}};'>
+                      <view class="list-ul " wx:for="{{item.Children}}" wx:for-item="item" wx:key="key" id="{{index}}" data-id="{{item.Id}}" catchtap='openList'>
+                        <view class='list-li {{item.Children.length>0&&item.Children!=null&&!item.open?"cha-ico2 commonico ":""}} {{item.Children.length>0&&item.Children!=null&&item.open?"chaopen-ico2 commonico ":""}}  {{item.Children.length>0&&item.Children!=null?"":"cha-ico3"}}'>
+                          <view class=' clearfix'>
+                            <view class='clist-li-title fl'>
+                              <view class='over-circle'>{{item.Title}}</view>
+                            </view>
+                            <!--ClassHoursType==0或3需要购买  -->
+                            <block wx:if="{{item.ClassHoursType==0||item.ClassHoursType==3}}">
+                              <!--已买 -->
+                              <block wx:if="{{item.HasBuy}}">
+                                <!--VideoUnique不等于null&&长度大于0 显示播放按钮 其它条件不显示任何按钮 -->
+                                <view class='commonico rt {{item.VideoUnique!=null&&item.VideoUnique.length>0? "course-ico":""}} {{item.nowplay==0?"now-play":""}} ' catchtap='bindgotocourseplay' data-type="1" data-title="{{item.Title}}" data-prodcutsid="{{productsId}}" data-parentId="{{item.ParentID}}"
+                                  data-id="{{item.Id}}" data-uu="{{videoUu}}" data-vu="{{item.VideoUnique}}"></view>
+                              </block>
+                              <!--未买 显示购物车按钮  -->
+                              <block wx:else>
+                                <view class='commonico rt cart-ico' data-id="{{item.Id}}" catchtap='gotobuy' data-title="{{item.Title}}"></view>
+                              </block>
+                            </block>
+
+                            <!--ClassHoursType==1或2不需要购买  -->
+                            <block wx:if="{{item.ClassHoursType==1||item.ClassHoursType==2}}">
+
+                              <block wx:if="{{item.UnlockWay==1}}">
+                              <block wx:if="{{islogin}}">
+                                <!--1 分享解锁  -->
+                                <button class="sharebtn-box" open-type="share" data-type="2" catchtap='bindgotocourseplay' data-id="{{item.Id}}" data-title="{{item.Title}}">
+                                  <view class='commonico rt share-ico'></view>
+                                </button>
+                              </block>
+                              <block wx:else>
+        <view class='commonico rt share-ico' catchtap='showLoginDialog' ></view>
+        </block>
+        </block>
+                              <block wx:else>
+                                <!--0,2,3 判断是否可播放  -->
+                                <view class='commonico rt {{item.VideoUnique!=null&&item.VideoUnique.length>0? "course-ico":""}} {{item.nowplay==0?"now-play":""}} ' catchtap='bindgotocourseplay' data-type="1" data-title="{{item.Title}}" data-prodcutsid="{{productsId}}" data-parentId="{{item.ParentID}}"
+                                  data-id="{{item.Id}}" data-uu="{{videoUu}}" data-vu="{{item.VideoUnique}}"></view>
+                              </block>
+                            </block>
+                          </view>
+                          <view class='width100'>
+                            <text class='fontc9'>{{item.ClassHoursInfo}}{{item.QuestionCount}}</text>
+                            <text class='fontc9 pbuy-stu'>{{item.pBuyInfo}}{{item.StudyCount}}</text>
+                          </view>
+
+                          <block wx:if="{{item.Children.length>0&&item.Children!=null}}">
+                            <!--三级  -->
+                            <!--pages/template/componont/myCon.wxml-->
+
+                            <view class="list-ul " wx:for="{{item.childarr}}" wx:for-item="item" wx:key="key" id="{{index}}" data-id="{{item.Id}}" catchtap='openList'>
+                              <view class='list-li {{item.Children.length>0&&item.Children!=null&&!item.open?"cha-ico2 commonico ":""}} {{item.Children.length>0&&item.Children!=null&&item.open?"chaopen-ico2 commonico ":""}}  {{item.Children.length>0&&item.Children!=null?"":"cha-ico3"}}'>
+                                <view class=' clearfix'>
+                                  <view class='clist-li-title fl'>
+                                    <view class='over-circle'>{{item.Title}}</view>
+                                  </view>
+                                  <!--ClassHoursType==0或3需要购买  -->
+                                  <block wx:if="{{item.ClassHoursType==0||item.ClassHoursType==3}}">
+                                    <!--已买 -->
+                                    <block wx:if="{{item.HasBuy}}">
+                                      <!--VideoUnique不等于null&&长度大于0 显示播放按钮 其它条件不显示任何按钮 -->
+                                      <view class='commonico rt {{item.VideoUnique!=null&&item.VideoUnique.length>0? "course-ico":""}} {{item.nowplay==0?"now-play":""}} ' catchtap='bindgotocourseplay' data-type="1" data-title="{{item.Title}}" data-prodcutsid="{{productsId}}" data-parentId="{{item.ParentID}}"
+                                        data-id="{{item.Id}}" data-uu="{{videoUu}}" data-vu="{{item.VideoUnique}}"></view>
+                                    </block>
+                                    <!--未买 显示购物车按钮  -->
+                                    <block wx:else>
+                                      <view class='commonico rt cart-ico' data-id="{{item.Id}}" catchtap='gotobuy' data-title="{{item.Title}}"></view>
+                                    </block>
+                                  </block>
+
+                                  <!--ClassHoursType==1或2不需要购买  -->
+                                  <block wx:if="{{item.ClassHoursType==1||item.ClassHoursType==2}}">
+
+                                    <block wx:if="{{item.UnlockWay==1}}">
+                                    <block wx:if="{{islogin}}">
+                                      <!--1 分享解锁  -->
+                                      <button class="sharebtn-box" open-type="share" data-type="2" catchtap='bindgotocourseplay' data-id="{{item.Id}}" data-title="{{item.Title}}">
+                                        <view class='commonico rt share-ico'></view>
+                                      </button>
+                                    </block>
+                                    <block wx:else>
+        <view class='commonico rt share-ico' catchtap='showLoginDialog' ></view>
+        </block>
+        </block>
+                                    <block wx:else>
+                                      <!--0,2,3 判断是否可播放  -->
+                                      <view class='commonico rt {{item.VideoUnique!=null&&item.VideoUnique.length>0? "course-ico":""}} {{item.nowplay==0?"now-play":""}} ' catchtap='bindgotocourseplay' data-type="1" data-title="{{item.Title}}" data-prodcutsid="{{productsId}}" data-parentId="{{item.ParentID}}"
+                                        data-id="{{item.Id}}" data-uu="{{videoUu}}" data-vu="{{item.VideoUnique}}"></view>
+                                    </block>
+                                  </block>
+                                </view>
+                                <view class='width100'>
+                                  <text class='fontc9'>{{item.ClassHoursInfo}}{{item.QuestionCount}}</text>
+                                  <text class='fontc9 pbuy-stu'>{{item.pBuyInfo}}{{item.StudyCount}}</text>
+                                </view>
+
+                                <block wx:if="{{item.Children.length>0&&item.Children!=null}}">
+                                  <!--第四级  -->
+                                </block>
+                              </view>
+                            </view>
+
+
+
+                          </block>
+                        </view>
+                      </view>
+                    </block>
+                  </block>
+                </view>
+              </view>
+
+
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style="height: 100%;" bindscrolltolower="loadMoreEvaluateList">
+        <view style='stars-content'>
+          <view class='star-item'>
+            <view class='star-left'>
+              <view class='star-left-content'>
+                <view>{{starData[0].ScoreItemName}}</view>
+                <view>{{starData[0].AvgScore}}</view>
+                <view class='star-content'>
+                  <view class='star-item'>
+                    <view wx:for="{{stars}}" wx:key="{{index}}">
+                      <image class="star-image small" src="{{starData[0].AvgScore > item ?(starData[0].AvgScore-item <= 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                        <view class="item" style="left:18rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+                      </image>
+                    </view>
+                  </view>
+                </view>
+                <!-- <mystar class="star-content" disable small showText="{{false}}" starValue="{{starData[0].AvgScore}}"></mystar> -->
+                <view>共{{starData[0].RemarkCount}}次</view>
+              </view>
+            </view>
+            <view class='star-right'>
+              <view class='star-right-item'>
+                <text>{{starData[1].ScoreItemName}}</text>
+                <view class='star-content'>
+                  <view class='star-item'>
+                    <view wx:for="{{stars}}" wx:key="{{index}}">
+                      <image class="star-image small" src="{{starData[1].AvgScore > item ?(starData[1].AvgScore-item <= 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                        <view class="item" style="left:18rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+                      </image>
+                    </view>
+                  </view>
+                  <view>
+                    <text class='star-fen'>{{starData[1].AvgScore}}分</text>
+                    <text class='star-desc' wx:if="{{starData[1].AvgScore == 0}}">评论</text>
+                    <text class='star-desc' wx:if="{{starData[1].AvgScore > 0 && starData[1].AvgScore <= 2.0}}">较差</text>
+                    <text class='star-desc' wx:if="{{starData[1].AvgScore > 2 && starData[1].AvgScore <= 3.0}}">还行</text>
+                    <text class='star-desc' wx:if="{{starData[1].AvgScore >= 3.5}}">力荐</text>
+                  </view>
+                </view>
+                <!-- <mystar disable small class="star-text" starValue="{{starData[1].AvgScore}}"></mystar> -->
+              </view>
+              <view class='star-right-item'>
+                <text>{{starData[2].ScoreItemName}}</text>
+                <view class='star-content'>
+                  <view class='star-item'>
+                    <view wx:for="{{stars}}" wx:key="{{index}}">
+                      <image class="star-image small" src="{{starData[2].AvgScore > item ?(starData[2].AvgScore-item <= 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                        <view class="item" style="left:18rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+                      </image>
+                    </view>
+                  </view>
+                  <view>
+                    <text class='star-fen'>{{starData[2].AvgScore}}分</text>
+                    <text class='star-desc' wx:if="{{starData[2].AvgScore == 0}}">评论</text>
+                    <text class='star-desc' wx:if="{{starData[2].AvgScore > 0 && starData[2].AvgScore <= 2.0}}">较差</text>
+                    <text class='star-desc' wx:if="{{starData[2].AvgScore > 2 && starData[2].AvgScore <= 3.0}}">还行</text>
+                    <text class='star-desc' wx:if="{{starData[2].AvgScore >= 3.5}}">力荐</text>
+                  </view>
+                </view>
+              </view>
+              <view class='star-right-item'>
+                <text>{{starData[3].ScoreItemName}}</text>
+                <view class='star-content'>
+                  <view class='star-item'>
+                    <view wx:for="{{stars}}" wx:key="{{index}}">
+                      <image class="star-image small" src="{{starData[3].AvgScore > item ?(starData[3].AvgScore-item <= 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                        <view class="item" style="left:18rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+                      </image>
+                    </view>
+                  </view>
+                  <view>
+                    <text class='star-fen'>{{starData[3].AvgScore}}分</text>
+                    <text class='star-desc' wx:if="{{starData[3].AvgScore == 0}}">评论</text>
+                    <text class='star-desc' wx:if="{{starData[3].AvgScore > 0 && starData[3].AvgScore <= 2.0}}">较差</text>
+                    <text class='star-desc' wx:if="{{starData[3].AvgScore > 2 && starData[3].AvgScore <= 3.0}}">还行</text>
+                    <text class='star-desc' wx:if="{{starData[3].AvgScore >= 3.5}}">力荐</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <!-- <mystar class="star-content" disable showText="{{false}}" starValue="{{2}}"></mystar> -->
+          </view>
+        </view>
+        <view class='evaluate-content'>
+          <view class='evaluate-item' wx:for="{{evaluateList}}" wx:for-item="item" wx:key="key">
+            <view class='evaluate-item-title'>
+              <image class='evaluate-item-pic' src='{{item.HeadPic}}'></image>
+              <view class='evaluate-item-name'>{{item.UserName}}</view>
+            </view>
+            <view class='evaluate-item-content'>{{item.CommentContent}}</view>
+            <view class='evaluate-item-foot'>{{item.CreateTime}}</view>
+          </view>
+        </view>
+      </scroll-view>
+
+
+    </swiper-item>
+  </swiper>
+</view>

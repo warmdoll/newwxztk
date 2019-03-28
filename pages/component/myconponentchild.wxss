@@ -1,0 +1,57 @@
+@import "componentcss.wxss";
+@import '../template/showDialog/showDialog.wxss';
+.chapter-list-box{
+  padding: 30rpx;
+  
+}
+.list-ul>.list-li>.list-ul{
+  padding-left: 32rpx;
+  margin-left: 20rpx;
+  margin-bottom: 30rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+.list-ul>.list-li>.list-ul.borderlf{
+  border-left: 1px solid #58a6f8;
+}
+.list-ul>.list-li .list-ul>.list-li{
+  padding-left: 0;
+  margin-top: 20rpx;
+}
+
+
+.list-ul>.list-li.cha-ico2.commonico::before,.list-ul>.list-li.chaopen-ico2.commonico::before{
+ width:40rpx;
+height:50rpx;
+background-size:1800rpx 900rpx;
+background-image:url("http://wap.wangxiao.cn/ztkxcx/images/icon3.png?na");
+left: -61rpx;
+
+}
+.list-ul>.list-li.cha-ico2.commonico::before{
+  background-position:-920rpx 0rpx;
+  top: 30rpx;
+}
+.list-ul>.list-li.chaopen-ico2.commonico::before{
+  background-position: -0rpx -88rpx;
+  top: 30rpx;
+}
+.list-ul.close{
+  display:none;
+}
+
+.list-ul>.list-li.cha-ico3,
+.list-ul>.list-li.cha-ico2,
+.list-ul>.list-li.chaopen-ico2{position: relative;padding-top:20rpx;}
+.list-ul>.list-li.cha-ico3:before{
+  position: absolute;
+  content:'';
+  display: block;
+   width: 20rpx;
+  height: 20rpx;
+  background-color:#58a6f8; 
+   border-radius: 50%;
+   top: 35rpx;
+   left: -52rpx;
+}
+
+

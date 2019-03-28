@@ -1,0 +1,71 @@
+
+<view class='box-pa  paper-title'>
+  {{paperObj.TestPaper.Title}}
+</view>
+<view class='line-grey'></view>
+<view class='box-pa'>
+   <view class='paper-detai-item flex-box flex-between'>
+      <view class='paper-year'>
+        年份：{{paperObj.TestPaper.Year}}年
+      </view>
+      <view class='paper-core'>
+        试卷分数：<text class='core-color'>{{paperObj.TestPaper.TotalScore}}分</text>
+      </view>
+  </view>
+  <view class='paper-detai-item flex-box flex-between'>
+      <view class='paper-year'>
+        答题时间：{{paperObj.TestPaper.TestMinutes}}分钟
+      </view>
+      <view class='paper-core'>
+        合格分数：<text class='core-color'>{{paperObj.TestPaper.PassingScore}}分</text>
+      </view>
+  </view>
+  <view class='paper-detai-item flex-box flex-between'>
+      <view class='paper-year'>
+        已答题人数  ：{{paperObj.TestPaper.TestCount}}人
+      </view>
+    
+  </view>
+   <view class='paper-detai-item flex-box flex-between'>
+    <view class='paper-core clearfix user-level'>
+        <view class='fl'>学生满意度：</view>
+         <view class="star-box fl">
+              <image src="http://static.wangxiao.cn/zhuntiku/img/epmtystar-3.png" alt="" class="star-img"></image>
+              <view class="star" style="width:{{paperObj.TestPaper.ContentLevel}}%;"></view>
+          </view>
+      </view>
+  </view>
+   <view class='paper-detai-item'>
+    <view class='change-btn clearfix'>
+        <view class='change-btn-lf tc fl' data-id='' data-source="0" bindtap='gotopractice'>开始练习</view>
+        <view class='change-btn-rt tc fl' data-source="1" bindtap='gotopractice'>模拟考试</view>
+    </view>
+    <view>试卷介绍</view>
+  </view>
+  <view class='paper-introduction box-pa'>
+    <view class='paper-introlist'>一、题型介绍</view>
+    <block wx:for="{{paperObj.PaperRules}}" wx:if="{{paperObj.PaperRules.length>0}}" wx:key="a">
+      <view class='paper-introduction-item'>
+      <text>{{index+1}}.本试卷 {{item.Title}}共{{item.QuestionCount}}题：每题{{item.QuestionsScore}}分</text>
+      <text wx:if="{{item.tiCount}}">，共{{item.QuestionCount*item.QuestionsScore2}}分</text>
+     </view>
+    </block>
+    <view class='paper-introlist'>二、考前必读</view>
+     <block wx:for="{{paperObj.PaperRules}}" wx:if="{{paperObj.PaperRules.length>0}}" wx:key="a">
+        <view class='paper-introduction-item height5 clearfix'>
+          <view class='fl'> {{index+1}}. {{item.Title}}</view> 
+          <view class='check-box fl tc {{item.Title=="单项选择题"?"single-box ":"maney-box"}}'>A</view>:
+         
+        </view>
+         <view class='paper-intro-detail margin5'>{{item.Content}}</view>
+     </block>
+      <view class='paper-introduction-item height5'>
+        {{paperObj.PaperRules.length+1}}.交卷时，主观题请根据参考答案自己评分
+      </view>
+  </view>
+</view>
+<!--引导下载App  -->
+<view class='appName'>
+  <import src="../../template/downAppTips/downAppTips.wxml" />
+<template is="downApp" data="{{downAppShowToast:downAppShowToast,appName:appName,logoImg:logoImg}}">  </template>  
+</view>

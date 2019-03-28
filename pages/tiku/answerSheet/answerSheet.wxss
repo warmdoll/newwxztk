@@ -1,0 +1,76 @@
+page{height:100%}
+.tab-fixed{
+  position:fixed;
+  top:0;
+  left:0;
+  background-color:#fff;
+  width:100%;
+  z-index:1000;
+
+}
+.outer-height{
+  height: 100%;
+}
+.analysis-list{
+  padding-top: 140rpx;
+  height: calc(100% - 100rpx);
+  overflow-y: auto;
+}
+.analysis-list swiper{
+  height: 100%;
+  overflow-y: auto;
+}
+swiper-item{
+  overflow-y: auto;
+}
+view{
+    box-sizing: border-box;
+}
+.change-btn{
+  border-radius: 40px;
+  border: 1px solid #58a6f8;
+  width: 60%;
+  margin:40rpx auto;
+  overflow: hidden;
+}
+.change-btn-item{
+  width: 50%;
+  padding: 15rpx 0px;
+  color: #58a6f8;
+  font-size: 30rpx;
+}
+.change-btn-item.act{
+  background-color: #58a6f8;
+  color: #fff;
+}
+.ti-box{
+  width: 14.21%;
+  float: left;
+  margin: 20rpx 0;
+}
+.ti-btn{
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 0 auto;
+  text-align: center;
+  color: #666;
+  border: 1px solid #58a6f8;
+  border-radius: 50%;
+  font-size: 30rpx;
+}
+.ti-btn.right-act{
+  background-color:#6fd89c;
+  color: #fff;
+  border: 1px solid #6fd89c;
+}
+.ti-btn.wrong-act{
+  background-color:#f46464;
+  color: #fff;
+  border: 1px solid #f46464;
+}
+.ti-title{
+  padding: 30rpx 20rpx 10rpx 10rpx;
+  font-size: 28rpx;
+}
+
